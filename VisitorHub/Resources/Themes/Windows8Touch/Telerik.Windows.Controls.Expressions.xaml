@@ -1,0 +1,380 @@
+<ResourceDictionary
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Expressions"
+        xmlns:expressions="clr-namespace:Telerik.Windows.Controls.Expressions;assembly=Telerik.Windows.Controls.Expressions"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:c="http://schemas.telerik.com/2008/xaml/compile"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="c">
+    <ResourceDictionary.MergedDictionaries>
+        <telerik:Windows8TouchResourceDictionary/>
+    </ResourceDictionary.MergedDictionaries>
+    <Color x:Key="FunctionColor_Foreground">#FF00A5FF</Color>
+    <Color x:Key="MemberColor_Foreground">#FFAD0096</Color>
+    <Color x:Key="StringColor_Foreground">#FF5CA124</Color>
+    <Color x:Key="DateTimeColor_Foreground">#FFFF6900</Color>
+    <Color x:Key="DefaultColor_Foreground">#FF000000</Color>
+    <Color x:Key="ExpressionTextBox_CaretColor">#FF000000</Color>
+    <Geometry x:Key="Plus">M7.1791806,0 L11.037181,0 L11.037181,7.0529909 L17.976999,7.0529909 L17.976999,10.906991 L11.037181,10.906991 L11.037181,17.957001 L7.1791806,17.957001 L7.1791806,10.906991 L0,10.906991 L0,7.0529909 L7.1791806,7.0529909 z</Geometry>
+    <Geometry x:Key="Minus">M17.976999,7.0529909 L17.976999,10.906991 L0,10.906991 L0,7.0529909 z</Geometry>
+    <Geometry x:Key="Multiply">M7.1791806,0 L11.037181,0 L11.037181,7.0529909 L17.976999,7.0529909 L17.976999,10.906991 L11.037181,10.906991 L11.037181,17.957001 L7.1791806,17.957001 L7.1791806,10.906991 L0,10.906991 L0,7.0529909 L7.1791806,7.0529909 z</Geometry>
+    <Geometry x:Key="Percent">M6.5,5 C7.3284268,5 8,5.6715727 8,6.5 C8,7.3284268 7.3284268,8 6.5,8 C5.6715727,8 5,7.3284268 5,6.5 C5,5.6715727 5.6715727,5 6.5,5 z M6.6443858,0 L8,1.355615 L1.3565066,8.000001 L3.5762793E-07,6.6434941 z M1.5,0 C2.3284271,0 3,0.67157286 3,1.4999999 C3,2.3284271 2.3284271,2.9999998 1.5,2.9999998 C0.67157286,2.9999998 6.412975E-08,2.3284271 0,1.4999999 C6.412975E-08,0.67157286 0.67157286,0 1.5,0 z</Geometry>
+    <Geometry x:Key="Divide">M6.4999404,5.0003071 C7.3283672,5.0003071 7.9999404,5.6718798 7.9999404,6.5003071 C7.9999404,7.3287339 7.3283672,8.0003071 6.4999404,8.0003071 C5.6715131,8.0003071 4.9999404,7.3287339 4.9999404,6.5003071 C4.9999404,5.6718798 5.6715131,5.0003071 6.4999404,5.0003071 z M1.5,0.00036684913 C2.3284271,0.0003668053 3,0.67193967 3,1.5003668 C3,2.3287938 2.3284271,3.0003667 1.5,3.0003667 C0.67157286,3.0003667 0,2.3287938 0,1.5003668 C0,0.67193967 0.67157286,0.0003668053 1.5,0.00036684913 z M6.6609359,0 L8.016551,1.3556148 L1.3730572,8 L0.016551096,6.6434937 z</Geometry>
+    <Geometry x:Key="Equals">M0,3 L9,3 L9,5 L0,5 z M2.682209E-07,0 L9,0 L9,2 L2.682209E-07,2 z</Geometry>
+    <Geometry x:Key="NotEquals">M6.8438272,0 L6.0373545,2.0623121 L8,2.0623121 L8,4.0623121 L5.2552485,4.0623121 L4.8641958,5.0623121 L8,5.0623121 L8,7.0623121 L4.0820904,7.0623121 L3.2790608,9.115819 L1.1248636,9.0938644 L1.9289982,7.0623121 L0,7.0623121 L0,5.0623121 L2.7206435,5.0623121 L3.116466,4.0623121 L2.7167258E-07,4.0623121 L2.7167258E-07,2.0623121 L3.9081113,2.0623121 L4.7207074,0.0093827248 z</Geometry>
+    <Geometry x:Key="LessThanGreaterThan">F1 M14.10388,3.5915833 L10.967,3.579 L6.4790001,8.066 L10.967,12.554 L14.128588,12.56459 L9.5209999,8.066 z</Geometry>
+    <Geometry x:Key="LessThanOrEqualsGreaterThanOrEquals">M7.0000005,5 L12.000001,5 L12.000001,7 L7.0000005,7 z M7.0000005,1.9999996 L12.000001,1.9999996 L12.000001,3.9999998 L7.0000005,3.9999998 z M3.5201895,0 L5.9806204,0.011203052 L2.3860106,3.9948406 L6,8.000001 L3.5201895,7.9905715 L0,3.9948406 z</Geometry>
+    <ControlTemplate TargetType="telerik:RadButton" x:Key="ExpressionEditorButtonTemplate">
+        <Grid Margin="3" Background="Transparent">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal"/>
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Content" Storyboard.TargetProperty="Fill">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Content" Storyboard.TargetProperty="Fill">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik:Windows8TouchResource ResourceKey=InvertedForegroundBrush}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Disabled">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0" Storyboard.TargetName="Border" Storyboard.TargetProperty="Opacity" To="0.5"/>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="FocusStatesGroup">
+                    <VisualState x:Name="Unfocused"/>
+                    <VisualState x:Name="Focused"/>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Border x:Name="Border"
+                    Background="{TemplateBinding Background}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+                <Path x:Name="Content"
+                        Stretch="Fill"
+                        Margin="{TemplateBinding Padding}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        Data="{TemplateBinding Content}"
+                        Fill="{TemplateBinding Foreground}"/>
+            </Border>
+        </Grid>
+    </ControlTemplate>
+    <Style x:Key="ExpressionEditor_ButtonStyle" TargetType="telerik:RadButton">
+        <Setter Property="Template" Value="{StaticResource ExpressionEditorButtonTemplate}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush" Value="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+        <Setter Property="Background" Value="{telerik:Windows8TouchResource ResourceKey=MainBrush}"/>
+        <Setter Property="Foreground" Value="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="6"/>
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="Width" Value="36"/>
+        <Setter Property="Height" Value="36"/>
+    </Style>
+    <ControlTemplate TargetType="expressions:ExpressionTextBox" x:Key="ExpressionTextBoxTemplate">
+        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+            <telerik:RadRichTextBox x:Name="RichTextBox"
+                    Background="{telerik:Windows8TouchResource ResourceKey=MainBrush}"
+                    AcceptsReturn="False"
+                    BorderThickness="0"
+                    IsSpellCheckingEnabled="False"
+                    CaretColor="{StaticResource ExpressionTextBox_CaretColor}"
+                    IsSelectionMiniToolBarEnabled="False"
+                    IsContextMenuEnabled="False"
+                    DocumentInheritsDefaultStyleSettings="True"
+                    FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"
+                    FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+        </Border>
+    </ControlTemplate>
+    <Style x:Key="ExpressionTextBoxStyle" TargetType="expressions:ExpressionTextBox">
+        <Setter Property="Template" Value="{StaticResource ExpressionTextBoxTemplate}"/>
+        <Setter Property="SyntaxColors">
+            <Setter.Value>
+                <expressions:SyntaxColors
+                        FunctionColor="{StaticResource FunctionColor_Foreground}"
+                        MemberColor="{StaticResource MemberColor_Foreground}"
+                        StringColor="{StaticResource StringColor_Foreground}"
+                        DateTimeColor="{StaticResource DateTimeColor_Foreground}"
+                        DefaultColor="{StaticResource DefaultColor_Foreground}"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FontSize" Value="15"/>
+    </Style>
+    <HierarchicalDataTemplate x:Key="CategoryItemTemplate" ItemsSource="{Binding ChildCategories}">
+        <TextBlock Text="{Binding Name}"/>
+    </HierarchicalDataTemplate>
+    <ControlTemplate TargetType="controls:RadExpressionEditor" x:Key="RadExpressionEditorTemplate">
+        <Border x:Name="PART_RootElement"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                UseLayoutRounding="True"
+                SnapsToDevicePixels="True">
+            <Grid x:Name="PART_ExpressionEditorGrid" Background="{TemplateBinding Background}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <expressions:ExpressionTextBox x:Name="PART_ExpressionNodeEditor"/>
+                <Border x:Name="CalculationPanel"
+                        Padding="8,5"
+                        Grid.Row="1"
+                        Background="{telerik:Windows8TouchResource ResourceKey=MainBrush}"
+                        BorderThickness="0,1,0,0"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Stretch" Orientation="Horizontal">
+                        <telerik:RadButton x:Name="Plus"
+                                Style="{StaticResource ExpressionEditor_ButtonStyle}"
+                                Content="{StaticResource Plus}"
+                                Padding="7"
+                                Margin="0,0,4,0"
+                                Command="controls:RadExpressionEditorCommands.InsertText"
+                                CommandParameter="+"/>
+                        <telerik:RadButton x:Name="Minus"
+                                MinWidth="36"
+                                MinHeight="36"
+                                Style="{StaticResource ExpressionEditor_ButtonStyle}"
+                                Content="{StaticResource Minus}"
+                                Padding="7,11,7,12"
+                                Margin="0,0,4,0"
+                                Command="controls:RadExpressionEditorCommands.InsertText"
+                                CommandParameter="-"/>
+                        <telerik:RadButton x:Name="Multiply"
+                                MinWidth="36"
+                                MinHeight="36"
+                                Style="{StaticResource ExpressionEditor_ButtonStyle}"
+                                Content="{StaticResource Multiply}"
+                                Padding="7"
+                                Margin="0,0,4,0"
+                                Command="controls:RadExpressionEditorCommands.InsertText"
+                                CommandParameter="*"/>
+                        <telerik:RadButton x:Name="Percent"
+                                MinWidth="36"
+                                MinHeight="36"
+                                Style="{StaticResource ExpressionEditor_ButtonStyle}"
+                                Content="{StaticResource Percent}"
+                                Padding="7"
+                                Margin="0,0,4,0"
+                                Command="controls:RadExpressionEditorCommands.InsertText"
+                                CommandParameter="%"/>
+                        <telerik:RadButton x:Name="Divide"
+                                MinWidth="36"
+                                MinHeight="36"
+                                Style="{StaticResource ExpressionEditor_ButtonStyle}"
+                                Content="{StaticResource Divide}"
+                                RenderTransformOrigin="0.5,0.5"
+                                Padding="7"
+                                Margin="0,0,4,0"
+                                Command="controls:RadExpressionEditorCommands.InsertText"
+                                CommandParameter="/">
+                            <telerik:RadButton.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="45"/>
+                                </TransformGroup>
+                            </telerik:RadButton.RenderTransform>
+                        </telerik:RadButton>
+                        <telerik:RadButton x:Name="Equals"
+                                MinWidth="36"
+                                MinHeight="36"
+                                Margin="5,0,4,0"
+                                Padding="7,10,7,9"
+                                Style="{StaticResource ExpressionEditor_ButtonStyle}"
+                                Content="{StaticResource Equals}"
+                                Command="controls:RadExpressionEditorCommands.InsertText"
+                                CommandParameter="="/>
+                        <telerik:RadButton x:Name="NotEquals"
+                                MinWidth="36"
+                                MinHeight="36"
+                                Style="{StaticResource ExpressionEditor_ButtonStyle}"
+                                Margin="0,0,4,0"
+                                Command="controls:RadExpressionEditorCommands.InsertText"
+                                Padding="6,7"
+                                Content="{StaticResource NotEquals}"
+                                CommandParameter="&lt;&gt;"/>
+                        <telerik:RadButton x:Name="LessThan"
+                                MinWidth="36"
+                                MinHeight="36"
+                                Margin="5,0,4,0"
+                                Padding="9,8"
+                                Content="{StaticResource LessThanGreaterThan}"
+                                Style="{StaticResource ExpressionEditor_ButtonStyle}"
+                                Command="controls:RadExpressionEditorCommands.InsertText"
+                                CommandParameter="&lt;"/>
+                        <telerik:RadButton x:Name="LessThanOrEquals"
+                                MinWidth="36"
+                                MinHeight="36"
+                                Content="{StaticResource LessThanOrEqualsGreaterThanOrEquals}"
+                                Padding="6,8"
+                                Style="{StaticResource ExpressionEditor_ButtonStyle}"
+                                Margin="0,0,4,0"
+                                Command="controls:RadExpressionEditorCommands.InsertText"
+                                CommandParameter="&lt;="/>
+                        <telerik:RadButton x:Name="GreaterThanOrEquals"
+                                MinWidth="36"
+                                MinHeight="36"
+                                Style="{StaticResource ExpressionEditor_ButtonStyle}"
+                                Content="{StaticResource LessThanOrEqualsGreaterThanOrEquals}"
+                                Padding="6,8"
+                                RenderTransformOrigin="0.5,0.5"
+                                Margin="0,0,4,0"
+                                Command="controls:RadExpressionEditorCommands.InsertText"
+                                CommandParameter="&gt;=">
+                            <telerik:RadButton.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="-180"/>
+                                </TransformGroup>
+                            </telerik:RadButton.RenderTransform>
+                        </telerik:RadButton>
+                        <telerik:RadButton x:Name="GreaterThan"
+                                MinWidth="36"
+                                MinHeight="36"
+                                Padding="9,8"
+                                Content="{StaticResource LessThanGreaterThan}"
+                                RenderTransformOrigin="0.5,0.5"
+                                Style="{StaticResource ExpressionEditor_ButtonStyle}"
+                                Margin="0,0,4,0"
+                                Command="controls:RadExpressionEditorCommands.InsertText"
+                                CommandParameter="&gt;">
+                            <telerik:RadButton.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="-180"/>
+                                </TransformGroup>
+                            </telerik:RadButton.RenderTransform>
+                        </telerik:RadButton>
+                        <telerik:RadButton x:Name="And"
+                                Content="And"
+                                Foreground="{telerik:Windows8TouchResource ResourceKey=HighBrush}"
+                                Padding="0"
+                                MinWidth="36"
+                                MinHeight="36"
+                                Margin="6,0,0,0"
+                                Command="controls:RadExpressionEditorCommands.InsertText"
+                                CommandParameter="And"/>
+                        <telerik:RadButton x:Name="Or"
+                                Margin="6,0,0,0"
+                                Content="Or"
+                                Foreground="{telerik:Windows8TouchResource ResourceKey=HighBrush}"
+                                Padding="0"
+                                MinWidth="36"
+                                MinHeight="36"
+                                Command="controls:RadExpressionEditorCommands.InsertText"
+                                CommandParameter="Or"/>
+                        <telerik:RadButton x:Name="Not"
+                                Margin="6,0,0,0"
+                                Content="Not"
+                                Foreground="{telerik:Windows8TouchResource ResourceKey=HighBrush}"
+                                Padding="0"
+                                MinWidth="36"
+                                MinHeight="36"
+                                Command="controls:RadExpressionEditorCommands.InsertText"
+                                CommandParameter="Not"/>
+                    </StackPanel>
+                </Border>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <telerik:RadTreeView x:Name="PART_EditorCategoriesTree"
+                            BorderThickness="0,1,1,0"
+                            BorderBrush="{telerik:Windows8TouchResource ResourceKey=MediumBrush}"
+                            Grid.Column="0"
+                            ItemsSource="{Binding Categories}"
+                            SelectedItem="{Binding SelectedCategory, Mode=TwoWay}"
+                            ItemTemplate="{StaticResource CategoryItemTemplate}"
+                            IsLineEnabled="True"/>
+                    <telerik:RadTreeView x:Name="PART_EditorItemsTree"
+                            FontWeight="Bold"
+                            BorderThickness="0,1,0,0"
+                            BorderBrush="{telerik:Windows8TouchResource ResourceKey=MediumBrush}"
+                            Grid.Column="1"
+                            ItemsSource="{Binding CategoryItems}"
+                            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                            DisplayMemberPath="Name"/>
+                </Grid>
+                <Border x:Name="EditorInfoPanel"
+                        Grid.Row="3"
+                        BorderBrush="{telerik:Windows8TouchResource ResourceKey=MediumBrush}"
+                        Background="{telerik:Windows8TouchResource ResourceKey=MainBrush}"
+                        BorderThickness="0,1,0,0"
+                        MinHeight="98">
+                    <Grid Margin="12,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                                Text="{Binding SelectedItem.QuickInfo}"
+                                Foreground="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"
+                                FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeXL}"
+                                FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamilyLight}"/>
+                        <TextBlock
+                                Text="{Binding SelectedItem.Description}"
+                                Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"
+                                TextWrapping="Wrap"
+                                Grid.Row="1"
+                                FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"
+                                FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+                    </Grid>
+                </Border>
+                <Border x:Name="EditorResultsPanel"
+                        Grid.Row="4"
+                        Padding="12,10"
+                        BorderBrush="{telerik:Windows8TouchResource ResourceKey=MediumBrush}"
+                        BorderThickness="0,1,0,0"
+                        Background="{telerik:Windows8TouchResource ResourceKey=LowBrush}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                                Text="Result preview="
+                                Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"
+                                HorizontalAlignment="Right"
+                                FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeXL}"
+                                FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamilyLight}"/>
+                        <TextBlock
+                                Text="{Binding PreviewResult}"
+                                VerticalAlignment="Center"
+                                Margin="0,5,0,0"
+                                Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"
+                                TextAlignment="Right"
+                                FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"
+                                FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+    </ControlTemplate>
+    <Style x:Key="RadExpressionEditorStyle" TargetType="controls:RadExpressionEditor">
+        <Setter Property="Template" Value="{StaticResource RadExpressionEditorTemplate}"/>
+        <Setter Property="Background" Value="{telerik:Windows8TouchResource ResourceKey=MainBrush}"/>
+        <Setter Property="BorderBrush" Value="{telerik:Windows8TouchResource ResourceKey=MediumBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+    </Style>
+    <Style TargetType="controls:RadExpressionEditor" BasedOn="{StaticResource RadExpressionEditorStyle}"/>
+    <Style TargetType="expressions:ExpressionTextBox" BasedOn="{StaticResource ExpressionTextBoxStyle}"/>
+</ResourceDictionary>

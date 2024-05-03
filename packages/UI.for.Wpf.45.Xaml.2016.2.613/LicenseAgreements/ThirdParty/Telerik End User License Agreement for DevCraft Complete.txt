@@ -1,0 +1,8 @@
+Telerik End User License Agreement for DevCraft Complete
+
+(Last Updated January 25, 2014)
+
+The TELERIK DevCraft Complete is a suite of products containing UI for ASP.NET AJAX, UI for WinForms, UI for Silverlight, UI for WPF, UI for Windows Phone, UI for Windows 8, Telerik Data Access, Kendo UI Web, Kendo UI DataViz, Kendo UI Mobile, server wrappers for Microsoft’s ASP.NET MVC framework, Telerik Reporting, Telerik Report Designer, JustCode, JustTrace, JustMock, JustDecompile and Telerik Testing Framework.
+
+To read the entire license please visit 
+http://www.telerik.com/purchase/license-agreement/telerik-premium-collection.aspx

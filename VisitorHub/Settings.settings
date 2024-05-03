@@ -1,0 +1,175 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SwipeDesktop" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ScanLicenseKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">499994CE2CWJCEBQ</Value>
+    </Setting>
+    <Setting Name="SDKLicense" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Y9G9MFWJLWPCUW6C</Value>
+    </Setting>
+    <Setting Name="School" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Swipe High School</Value>
+    </Setting>
+    <Setting Name="Calibrate" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="elastic_email_api_key" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">134a88e5-0354-4fd2-b7bf-e529eea780fd</Value>
+    </Setting>
+    <Setting Name="elastic_email_user" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">jonc@swipek12.com</Value>
+    </Setting>
+    <Setting Name="sender_name" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Do Not Reply</Value>
+    </Setting>
+    <Setting Name="sender_email" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">support@swipek12.com</Value>
+    </Setting>
+    <Setting Name="SchoolId" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">11102495</Value>
+    </Setting>
+    <Setting Name="ImagesFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\Temp\Images\</Value>
+    </Setting>
+    <Setting Name="StartupCode" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="StartupPeriod" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ImageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.swipek12.com/SWIPEDATA/{0}/Pictures/{1}</Value>
+    </Setting>
+    <Setting Name="SoundsFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\Temp\Sounds\</Value>
+    </Setting>
+    <Setting Name="PrintPasses" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AlertMessage" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">{0}</Value>
+    </Setting>
+    <Setting Name="StartupLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="StartupScanMode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Location</Value>
+    </Setting>
+    <Setting Name="AlertStartDate" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2015-09-01</Value>
+    </Setting>
+    <Setting Name="PassPrinter" Type="System.String" Scope="User">
+      <Value Profile="(Default)">STAR</Value>
+    </Setting>
+    <Setting Name="TardyAlertCount" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="CallUpgrade" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="PvcPrinter" Type="System.String" Scope="User">
+      <Value Profile="(Default)">STAR</Value>
+    </Setting>
+    <Setting Name="TempIdPrinter" Type="System.String" Scope="User">
+      <Value Profile="(Default)">STAR</Value>
+    </Setting>
+    <Setting Name="StudentIdTemplateName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TempIdTemplateName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MarkPresentInLocationMode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="BarcodeDevice" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">IdInnovations, Serial</Value>
+    </Setting>
+    <Setting Name="IncludeStaff" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="PrintOffsetX" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="PrintOffsetY" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="PrintScaleFactor" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="SelectedGroup" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SelectedPassType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Separate Pass and Alert</Value>
+    </Setting>
+    <Setting Name="DisplayText" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Welcome</Value>
+    </Setting>
+    <Setting Name="KioskImagePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="StudentKioskEntry" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SuppressIdOnPass" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="faceOffsetX" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">140</Value>
+    </Setting>
+    <Setting Name="faceOffsetY" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">340</Value>
+    </Setting>
+    <Setting Name="faceZoom" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="DuplexSetting" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="VisitorKioskEntry" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SwipeDesktopConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Server=.\sqlexpress;Initial Catalog=SwipeDesktop;Integrated Security=true;User ID=sa;Password=Bayliner9&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Server=.\sqlexpress;Initial Catalog=SwipeDesktop;Integrated Security=true;User ID=sa;Password=Bayliner9</Value>
+    </Setting>
+    <Setting Name="DeviceName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">73 Series</Value>
+    </Setting>
+    <Setting Name="AllowKioskTardyPass" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AllowKioskLocation" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AllowKioskLocationPass" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AllowKioskSearchName" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AllowKioskDismissalPass" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="KioskLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)">None</Value>
+    </Setting>
+    <Setting Name="JsonUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://station-api.swipek12.com/dataservice/</Value>
+    </Setting>
+    <Setting Name="TakeAttendance" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SqlMasterIp" Type="System.String" Scope="User">
+      <Value Profile="(Default)">www.swipek12.com,8003</Value>
+    </Setting>
+    <Setting Name="EnableLunchAlerts" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

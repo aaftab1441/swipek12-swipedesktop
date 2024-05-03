@@ -1,0 +1,5 @@
+﻿
+[Default]
+Addresses=support@swipek12.com;jon.ceanfaglione@gmail.com
+Subject=ATTENTION: Sex Offender Match
+Html={0} has arrived and is visiting {1}.  A possible sex offender match has been found. {2}

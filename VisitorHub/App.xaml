@@ -1,0 +1,113 @@
+﻿<Application x:Class="SwipeDesktop.App" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             Startup="App_Startup" ShutdownMode="OnMainWindowClose"
+             StartupUri="MainWindow.xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             d1p1:Ignorable="d" 
+             xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:SwipeDesktop.ViewModels"
+             xmlns:views="clr-namespace:SwipeDesktop.Views"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:m="clr-namespace:SwipeDesktop.Models">
+  <Application.Resources>
+        <Style TargetType="Control" x:Key="FontStyle">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+
+        <ResourceDictionary x:Key="ResourceDictionary">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/StandardStyles.xaml" />
+              
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+
+              
+            </ResourceDictionary.MergedDictionaries>
+            <BitmapImage x:Key="SwipeLogo" UriSource="./Resources/swipe_logo.png"/>
+            <BitmapImage x:Key="WelcomeLogo" UriSource="./Resources/welcome-logo.png"/>
+            <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        </ResourceDictionary>
+        <DataTemplate DataType="{x:Type m:StudentDetails}">
+            <views:StudentDetails/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type m:StaffDetails}">
+            <views:StaffDetails/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:VisitorScanViewModel}">
+            <views:VisitorScan/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:VisitLocationViewModel}">
+            <views:Locations/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:WelcomeViewModel}">
+            <views:Welcome/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ProcessingViewModel}">
+            <views:Processing/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:VisitorExitViewModel}">
+            <views:VisitorExit/>
+        </DataTemplate>
+      <DataTemplate DataType="{x:Type vm:SuspendViewModel}">
+          <views:SuspendEntry/>
+      </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:VisitorEntryViewModel}">
+            <views:VisitorEnter/>
+        </DataTemplate>
+      <DataTemplate DataType="{x:Type vm:StudentExitViewModel}">
+            <views:StudentExit/>
+      </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:StudentEnterViewModel}">
+            <views:StudentEnter/>
+      </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:StaffEnterViewModel}">
+            <views:StaffEnter/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:StaffExitViewModel}">
+            <views:StaffExit/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+            <views:Settings/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:StudentCardViewModel}">
+            <views:StudentCardFine/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:StaffCardViewModel}">
+            <views:StaffCard/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:IdCardDesignerViewModel}">
+            <views:IdCardDesigner/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:StudentAlternateIdViewModel}">
+            <views:StudentAlternateId/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AddPersonViewModel}">
+            <views:AddPerson/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:BatchPrintViewModel}">
+            <views:BatchPrint/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SelectedForPrintViewModel}">
+            <views:StudentsSelectedForPrint/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:NullViewModel}">
+            <views:NullView/>
+        </DataTemplate>
+        <system:String x:Key="APP_CARD_TYPE_STUDENT">Student</system:String>
+        <system:String x:Key="APP_CARD_TYPE_TEACHER">Teacher</system:String>
+        <system:String x:Key="APP_CARD_TYPE_OTHER">Other</system:String>
+        <system:String x:Key="APP_CARD_ORIENTATION_PORTRAIT">Portrait</system:String>
+        <system:String x:Key="APP_CARD_ORIENTATION_LANDSCAPE">Landscape</system:String>
+        <ControlTemplate x:Key="validationErrorTemplate">
+            <DockPanel>
+                <TextBlock Foreground="Red" DockPanel.Dock="Top">!</TextBlock>
+                <AdornedElementPlaceholder x:Name="ErrorAdorner"></AdornedElementPlaceholder>
+            </DockPanel>
+        </ControlTemplate>
+    </Application.Resources>
+   
+</Application>

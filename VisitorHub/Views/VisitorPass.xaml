@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="SwipeDesktop.Views.VisitorPass"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"  xmlns:viewModels="clr-namespace:SwipeDesktop.ViewModels"
+             xmlns:models="clr-namespace:SwipeDesktop.Models"
+             mc:Ignorable="d"
+            d:DesignHeight="215">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/StandardStyles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid x:Name="VisitorPassTemplate" Style="{StaticResource LayoutRootGridStyle}" Margin="0,0,0,0">
+        <StackPanel Orientation="Vertical" Width="370" Height="225">
+            <Grid Style="{StaticResource VisitorPassDemographicGrid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="105">
+
+                    </ColumnDefinition>
+                    <ColumnDefinition Width="*">
+
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="Visitor" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalContentAlignment="Top" VerticalAlignment="Top" Width="103" Style="{StaticResource VisitorPassDisplay}"/>
+                <Label Grid.Column="1" Content="{Binding SchoolName}" VerticalAlignment="Center" Width="auto" Style="{StaticResource SchoolLabel}"/>
+            </Grid>
+            <Label HorizontalAlignment="left" Content="{Binding DataModel.FullName, Mode=OneWay}" VerticalAlignment="Center" Width="auto" Style="{StaticResource VisitorPassDateLabel}" Margin="3,3" />
+            <Grid Style="{StaticResource VisitorPassDemographicGrid}" Height="170">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="125">
+
+                    </ColumnDefinition>
+                    <ColumnDefinition Width="*">
+
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Style="{StaticResource PopUpBorder}" Margin="2,0" Height="135">
+                    <Image Source="{Binding DataModel.BitmapSource}" Height="125" MinHeight="100" MinWidth="100" MaxHeight="125" MaxWidth="125" RenderOptions.BitmapScalingMode="HighQuality"/>
+                </Border>
+               
+               <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top" >
+                   <TextBlock Text="REASON FOR VISIT" HorizontalAlignment="Center" Style="{StaticResource VisitorPassDestinationBlockText}" VerticalAlignment="Top">
+                       <TextBlock.TextDecorations>
+                           <TextDecoration PenThicknessUnit="FontRecommended"></TextDecoration>
+                       </TextBlock.TextDecorations>
+                   </TextBlock>
+                   <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding DataModel.VisitLocation, Mode=OneWay}" HorizontalAlignment="stretch" VerticalAlignment="Top" Width="245" Style="{StaticResource VisitorPassDestinationBlockText}" Margin="1,5" />
+
+                   <TextBlock Text="{Binding DataModel.FormattedVisitEntryNumber, Mode=OneWay}" HorizontalAlignment="Left" Style="{StaticResource VisitorPassDestinationBlockText}" Height="25" />
+                   <telerik:RadBarcode39 Width="155" Height="35" Text="{Binding DataModel.EntryNumber, Mode=OneWay}" ShowText="False" ShowChecksum="False" HorizontalAlignment="Center" Visibility="Collapsed" />
+
+                   <Label Content="{Binding DataModel.FormattedVisitDate, Mode=OneWay}" HorizontalAlignment="Stretch" Style="{StaticResource VisitorPassDateLabel}" Height="30" Padding="0, 5" />
+
+                </StackPanel>
+              
+            </Grid>
+            </StackPanel>
+
+    </Grid>
+</UserControl>

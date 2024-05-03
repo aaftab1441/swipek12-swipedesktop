@@ -1,0 +1,16 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <ResourceDictionary.MergedDictionaries>
+     
+    </ResourceDictionary.MergedDictionaries>
+
+    <system:String x:Key="AlternateIdPrompt">Type or scan the alternate ID you would like to add to {0}.</system:String>
+
+
+    <system:String x:Key="NewIdString">{0} will be added.</system:String>
+
+</ResourceDictionary>

@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="WebCamControl.UI.Controls.Capture"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converters="clr-namespace:WebCamControl.UI.Converters"
+             xmlns:webcamPlayer="clr-namespace:WebCamControl.UI.Controls.WebcamPlayer"
+             xmlns:controls="clr-namespace:WebCamControl.UI.Controls"
+             xmlns:input="clr-namespace:WebCamControl.UI.Input"
+             xmlns:themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:controls1="clr-namespace:WPFMediaKit.DirectShow.Controls;assembly=WPFMediaKit"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Background="White">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/WebcamPlayer.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!-- This works: -->
+            <!-- Converters -->
+            <converters:ThreeFourthConverter x:Key="ThreeFourthConverter" />
+
+            <!-- Styles -->
+            <Style x:Key="DefaultCapPlayer" TargetType="{x:Type webcamPlayer:CapPlayer}">
+                <Setter Property="Margin" Value="0 6" />
+            </Style>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+
+    <Grid Margin="5">
+        <!-- Row definitions -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="252" />
+            <RowDefinition Height="35" />
+           
+        </Grid.RowDefinitions>
+
+     
+        <!-- Webcamp preview -->
+        <webcamPlayer:CapPlayer Grid.Row="0" x:Name="webcamPlayer" Stretch="Fill"
+                              Rotation="{Binding RelativeSource={RelativeSource AncestorType={x:Type controls:Capture}}, Path=WebcamRotation}"
+                              Height="{Binding ElementName=webcamPlayer, Path=ActualWidth, Converter={StaticResource ThreeFourthConverter}}"
+                              Device="{Binding RelativeSource={RelativeSource AncestorType={x:Type controls:Capture}}, Path=SelectedWebcam}"
+                              Style="{StaticResource DefaultCapPlayer}">
+        </webcamPlayer:CapPlayer>
+        
+        <!--<controls1:VideoCaptureElement Grid.Row="0" x:Name="VideoCapElement"
+                                 LoadedBehavior="Play"
+                                 DesiredPixelWidth="320"
+                                 DesiredPixelHeight="240"
+                                 Stretch="Fill"
+                                 VideoCaptureSource="{Binding Path=SelectedWebcamMonikerString}"
+                                 FPS="30" />-->
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <!-- Select webcam combobox -->
+            <ComboBox x:Name="webcamComboBox" ItemsSource="{x:Static webcamPlayer:CapDevice.DeviceMonikers}" Width="250"
+                  DisplayMemberPath="Name" SelectedValuePath="MonikerString"
+                  SelectedValue="{Binding RelativeSource={RelativeSource AncestorType={x:Type controls:Capture}}, Path=SelectedWebcamMonikerString}" />
+
+            <!-- Take picture button -->
+            <!--Command="{Binding CaptureCommand}"-->
+            <Button Command="input:CaptureImageCommands.CaptureImage" Margin="5 0 5 0"
+                    ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                    Style="{StaticResource RightAlignedImageButton}">
+                <fa:ImageAwesome Icon="Camera" Margin="0 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#0066B2" Height="20"/>
+            </Button>
+        </StackPanel>
+      
+
+        <!-- Webcam options -->
+        <GroupBox Grid.Row="2" Header="Options" Visibility="Collapsed">
+            <Grid>
+                <!-- Row definitions -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Column definitions -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Settings - rotation -->
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Rotation"
+                               Style="{StaticResource DefaultTextBlock}" />
+                <Slider Grid.Row="0" Grid.Column="1" Minimum="0" Maximum="360"
+                            TickPlacement="BottomRight" Ticks="0,180" IsSnapToTickEnabled="True"
+                            Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type controls:Capture}}, Path=WebcamRotation}" 
+                            Style="{StaticResource DefaultSlider}" />
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

@@ -1,0 +1,5 @@
+﻿
+[Default]
+Addresses=jonc@swipek12.com;
+Subject=Visit Notification
+Text={0} has arrived and is visiting {1}

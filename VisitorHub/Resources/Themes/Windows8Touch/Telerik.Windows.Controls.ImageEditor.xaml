@@ -1,0 +1,1687 @@
+<ResourceDictionary
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:c="http://schemas.telerik.com/2008/xaml/compile"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:telerikChromes="clr-namespace:Telerik.Windows.Controls.Chromes;assembly=Telerik.Windows.Controls"
+        xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls.Primitives;assembly=Telerik.Windows.Controls"
+        xmlns:controls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.ImageEditor"
+        xmlns:imaging="clr-namespace:Telerik.Windows.Media.Imaging;assembly=Telerik.Windows.Controls.ImageEditor"
+        xmlns:toolsUI="clr-namespace:Telerik.Windows.Media.Imaging.Tools.UI;assembly=Telerik.Windows.Controls.ImageEditor"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:animation="clr-namespace:Telerik.Windows.Controls.Animation;assembly=Telerik.Windows.Controls"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="c">
+    <ResourceDictionary.MergedDictionaries>
+        <telerik:Windows8TouchResourceDictionary/>
+    </ResourceDictionary.MergedDictionaries>
+    <sys:String x:Key="ImageThemeKeyString">Windows8Touch</sys:String>
+    <Thickness x:Key="ToolSettings_SeparatorMargin">-5 0</Thickness>
+    <Thickness x:Key="ToolSettings_ControlPadding">10 10 10 0</Thickness>
+    <Thickness x:Key="ToolSettingsHeader_Margin">0 5 0 5</Thickness>
+    <Thickness x:Key="ToolSettings_ContentPresenterMargin">0 5</Thickness>
+    <Thickness x:Key="ToolSettings_ShortContentPresenterMargin">0 10 0 5</Thickness>
+    <telerik:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    <Style TargetType="controls:RadImageEditor" x:Key="RadImageEditorStyle">
+        <Setter Property="FontFamily" Value="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik:Windows8TouchResource ResourceKey=FontSize}"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:RadImageEditor">
+                    <Grid x:Name="LayoutRoot">
+                        <ScrollViewer x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" BorderBrush="{x:Null}" Background="{TemplateBinding Background}">
+                            <Grid x:Name="ScrollContent">
+                                <Grid x:Name="ImageView">
+                                    <Border Margin="-4" CornerRadius="7" BorderThickness="1">
+                                        <Border.BorderBrush>
+                                            <SolidColorBrush Color="Black" Opacity="0.01"/>
+                                        </Border.BorderBrush>
+                                        <Border CornerRadius="5" BorderThickness="1">
+                                            <Border.BorderBrush>
+                                                <SolidColorBrush Color="Black" Opacity="0.04"/>
+                                            </Border.BorderBrush>
+                                            <Border CornerRadius="3" BorderThickness="1">
+                                                <Border.BorderBrush>
+                                                    <SolidColorBrush Color="Black" Opacity="0.10"/>
+                                                </Border.BorderBrush>
+                                                <Border CornerRadius="1" BorderThickness="1">
+                                                    <Border.BorderBrush>
+                                                        <SolidColorBrush Color="Black" Opacity="0.18"/>
+                                                    </Border.BorderBrush>
+                                                    <Grid Background="{telerik:Windows8TouchResource ResourceKey=MainBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                        <Image x:Name="MainImage"/>
+                                                        <Grid x:Name="PreviewPanel"/>
+                                                    </Grid>
+                                                </Border>
+                                            </Border>
+                                        </Border>
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                        </ScrollViewer>
+                        <Grid>
+                            <toolsUI:InlineToolSettingsPane x:Name="ToolSettingsPane" Visibility="Collapsed"/>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="toolsUI:InlineToolSettingsPane" x:Key="InlineToolSettingsPaneStyle">
+        <Setter Property="FontFamily" Value="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"/>
+        <Setter Property="Foreground" Value="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="MinWidth" Value="160"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="toolsUI:InlineToolSettingsPane">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Cursor="Hand">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <ContentPresenter Margin="4"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="1" Margin="4">
+                                <telerik:RadButton Name="ButtonOK" Margin="8 5" MinWidth="58" telerik:LocalizationManager.ResourceKey="Ok"/>
+                                <telerik:RadButton Name="ButtonCancel" Margin="8 5" MinWidth="58" telerik:LocalizationManager.ResourceKey="Cancel"/>
+                                <telerik:RadButton Name="ButtonReset" Margin="8 5" MinWidth="58" HorizontalAlignment="Right" telerik:LocalizationManager.ResourceKey="Reset"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="toolsUI:ToolSettingsPanel" x:Key="ToolSettingsPanelStyle">
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Top"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="MinWidth" Value="210"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="toolsUI:ToolSettingsPanel">
+                    <Grid Background="{TemplateBinding Background}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Background="{TemplateBinding Background}" BorderBrush="{x:Null}">
+                            <ContentPresenter Margin="{TemplateBinding Margin}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </ScrollViewer>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="1" Margin="10">
+                            <telerik:RadButton Name="ButtonOK" Visibility="Collapsed" MinWidth="58" Margin="8 5" telerik:LocalizationManager.ResourceKey="Ok"/>
+                            <telerik:RadButton Name="ButtonCancel" Visibility="Collapsed" MinWidth="58" Margin="8 5" telerik:LocalizationManager.ResourceKey="Cancel"/>
+                            <telerik:RadButton Name="ButtonReset" MinWidth="58" Margin="8 5" telerik:LocalizationManager.ResourceKey="Reset"/>
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="Thumb" x:Key="ThumbStyleEmpty">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Rectangle Fill="Black"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="Thumb" x:Key="IntersectionThumbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Rectangle Fill="{telerik:Windows8TouchResource ResourceKey=AccentBrush}" Width="12" Height="12"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="Thumb" x:Key="BridgeThumbStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Path Data="M550.5 1495.5 L918 1495.5" Stroke="{telerik:Windows8TouchResource ResourceKey=AccentBrush}" StrokeDashArray="4 4" Stretch="UniformToFill"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="Thumb" x:Key="BridgeThumbStyleVertical">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Path Data="M110 1551 L110 1675.0161" Stroke="{telerik:Windows8TouchResource ResourceKey=AccentBrush}" StrokeDashArray="4 4" Stretch="UniformToFill"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="toolsUI:CropAdorner" x:Key="CropAdornerStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="toolsUI:CropAdorner">
+                    <Grid x:Name="MainGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Fill="{telerik:Windows8TouchResource ResourceKey=InvertedBrush}" Opacity="0.3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+                        <Rectangle Fill="{telerik:Windows8TouchResource ResourceKey=InvertedBrush}" Opacity="0.3" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1"/>
+                        <Rectangle Fill="{telerik:Windows8TouchResource ResourceKey=InvertedBrush}" Opacity="0.3" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"/>
+                        <Rectangle Fill="{telerik:Windows8TouchResource ResourceKey=InvertedBrush}" Opacity="0.3" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1"/>
+                        <Thumb x:Name="ThumbC" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource ThumbStyleEmpty}" Opacity="0"/>
+                        <Thumb x:Name="ThumbL"
+                                Width="16"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="-8 0 0 0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Stretch"
+                                Style="{StaticResource ThumbStyleEmpty}"
+                                Opacity="0"
+                                Cursor="SizeWE"/>
+                        <Thumb x:Name="ThumbR"
+                                Width="16"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="0 0 -8 0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Stretch"
+                                Style="{StaticResource ThumbStyleEmpty}"
+                                Opacity="0"
+                                Cursor="SizeWE"/>
+                        <Thumb x:Name="ThumbT"
+                                Height="16"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="0 -8 0 0"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top"
+                                Style="{StaticResource ThumbStyleEmpty}"
+                                Opacity="0"
+                                Cursor="SizeNS"/>
+                        <Thumb x:Name="ThumbB"
+                                Height="16"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="0 0 0 -8"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Bottom"
+                                Style="{StaticResource ThumbStyleEmpty}"
+                                Opacity="0"
+                                Cursor="SizeNS"/>
+                        <Thumb x:Name="ThumbTL"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="-6 -6 0 0"
+                                Cursor="SizeNWSE"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Style="{StaticResource IntersectionThumbStyle}"/>
+                        <Thumb x:Name="ThumbTR"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="0 -6 -6 0"
+                                Cursor="SizeNESW"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Style="{StaticResource IntersectionThumbStyle}"/>
+                        <Thumb x:Name="ThumbBR"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="0 0 -6 -6"
+                                Cursor="SizeNWSE"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Style="{StaticResource IntersectionThumbStyle}"/>
+                        <Thumb x:Name="ThumbBL"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="-6 0 0 -6"
+                                Cursor="SizeNESW"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Bottom"
+                                Style="{StaticResource IntersectionThumbStyle}"/>
+                        <Thumb x:Name="ThumbBridgeL" Grid.Row="1" Grid.Column="1" Width="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Style="{StaticResource BridgeThumbStyleVertical}"/>
+                        <Thumb x:Name="ThumbBridgeT" Grid.Row="1" Grid.Column="1" Height="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Style="{StaticResource BridgeThumbStyle}"/>
+                        <Thumb x:Name="ThumbBridgeR" Grid.Row="1" Grid.Column="1" Width="1" HorizontalAlignment="Right" VerticalAlignment="Stretch" Style="{StaticResource BridgeThumbStyleVertical}"/>
+                        <Thumb x:Name="ThumbBridgeB" Grid.Row="1" Grid.Column="1" Height="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Style="{StaticResource BridgeThumbStyle}"/>
+                        <Canvas Grid.Row="1" Grid.Column="1" Margin="-4 -34 0 0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="CropSizeLabel"
+                                        Foreground="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"
+                                        IsHitTestVisible="False"
+                                        FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"
+                                        FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+                                <TextBlock
+                                        Text="px"
+                                        Margin="2 0 0 0"
+                                        Foreground="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"
+                                        IsHitTestVisible="False"
+                                        FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"
+                                        FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+                            </StackPanel>
+                        </Canvas>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <ControlTemplate x:Key="ImageEditorToggleButtonTemplate" TargetType="telerik:RadToggleButton">
+        <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+    </ControlTemplate>
+    <Style x:Key="EmptyFocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle Stroke="Transparent" StrokeThickness="0" Margin="0"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ImageEditorExpanderStyle" TargetType="telerik:RadExpander">
+        <Setter Property="FontFamily" Value="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"/>
+        <Setter Property="Padding" Value="4 0"/>
+        <Setter Property="Foreground" Value="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Background" Value="#00FFFFFF"/>
+        <Setter Property="BorderBrush" Value="#00FFFFFF"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="animation:AnimationManager.AnimationSelector">
+            <Setter.Value>
+                <animation:AnimationSelector>
+                    <animation:ExpanderExpandCollapseAnimation AnimationName="Expand" Direction="In" TargetElementName="Content"/>
+                    <animation:ExpanderExpandCollapseAnimation AnimationName="Collapse" Direction="Out" TargetElementName="Content"/>
+                </animation:AnimationSelector>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="VerticalHeaderAlignment" Value="Center"/>
+        <Setter Property="ExpandDirection" Value="Down"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerik:RadExpander">
+                    <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStateGroup">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Content" Storyboard.TargetProperty="Opacity" To="0.5"/>
+                                        <DoubleAnimation Storyboard.TargetName="HeaderContent" Storyboard.TargetProperty="Opacity" To=".5"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="HeaderStateGroup">
+                                <VisualState x:Name="NormalHeader"/>
+                                <VisualState x:Name="MouseOverHeader"/>
+                                <VisualState x:Name="PressedHeader"/>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="HeaderOrientationGroup">
+                                <VisualState x:Name="HorizontalOrientation">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HeaderContentTransform" Storyboard.TargetProperty="LayoutTransform">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <RotateTransform Angle="0"/>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HeaderContentTransform" Storyboard.TargetProperty="(Grid.Column)">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <sys:Int32>1</sys:Int32>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="VerticalOrientation">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HeaderContentTransform" Storyboard.TargetProperty="LayoutTransform">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <RotateTransform Angle="90"/>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HeaderContentTransform" Storyboard.TargetProperty="(Grid.Row)">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <sys:Int32>1</sys:Int32>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ExpandStateGroup">
+                                <VisualState x:Name="Expanded">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="arrow" Storyboard.TargetProperty="(FrameworkElement.RenderTransform).Angle" To="180" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Collapsed">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="arrow" Storyboard.TargetProperty="(FrameworkElement.RenderTransform).Angle" To="90" Duration="0:0:0.2"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="arrow" Storyboard.TargetProperty="Fill" Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik:Windows8TouchResource ResourceKey=InvertedBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ExpandDirectionStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition>
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="(Grid.Row)">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <sys:Int32>0</sys:Int32>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="(Grid.Column)">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <sys:Int32>0</sys:Int32>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ImageEditorHeaderButton" Storyboard.TargetProperty="(Grid.Row)">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <sys:Int32>0</sys:Int32>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ImageEditorHeaderButton" Storyboard.TargetProperty="(Grid.Column)">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <sys:Int32>0</sys:Int32>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="col0" Storyboard.TargetProperty="Width">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <GridLength>Auto</GridLength>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="col1" Storyboard.TargetProperty="Width">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <GridLength>Auto</GridLength>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="row0" Storyboard.TargetProperty="Height">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <GridLength>Auto</GridLength>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="row1" Storyboard.TargetProperty="Height">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <GridLength>Auto</GridLength>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="DirectionLeft"/>
+                                <VisualState x:Name="DirectionRight"/>
+                                <VisualState x:Name="DirectionUp"/>
+                                <VisualState x:Name="DirectionDown">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="col0" Storyboard.TargetProperty="Width">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <GridLength>*</GridLength>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="row1" Storyboard.TargetProperty="Height">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <GridLength>*</GridLength>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="(Grid.Row)">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <sys:Int32>1</sys:Int32>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition x:Name="row0" Height="Auto" MinHeight="26"/>
+                                    <RowDefinition x:Name="row1" Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition x:Name="col0" Width="Auto"/>
+                                    <ColumnDefinition x:Name="col1" Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <telerik:RadToggleButton x:Name="ImageEditorHeaderButton"
+                                        TabIndex="{TemplateBinding TabIndex}"
+                                        HorizontalAlignment="{TemplateBinding HorizontalHeaderAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalHeaderAlignment}"
+                                        HorizontalContentAlignment="{TemplateBinding HorizontalHeaderAlignment}"
+                                        VerticalContentAlignment="{TemplateBinding VerticalHeaderAlignment}"
+                                        Background="Transparent"
+                                        Template="{StaticResource ImageEditorToggleButtonTemplate}"
+                                        IsChecked="{Binding Path=IsExpanded, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                        ClickMode="{TemplateBinding ClickMode}"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        FontStyle="{TemplateBinding FontStyle}"
+                                        FontWeight="{TemplateBinding FontWeight}"
+                                        FontFamily="{TemplateBinding FontFamily}"
+                                        FontStretch="{TemplateBinding FontStretch}"
+                                        Foreground="{TemplateBinding Foreground}"
+                                        FocusVisualStyle="{StaticResource EmptyFocusVisual}">
+                                    <Grid x:Name="HeaderPanel" Background="Transparent">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0" Grid.Row="0" Margin="6 0">
+                                            <Grid x:Name="arrowPanel">
+                                                <Grid.RenderTransform>
+                                                    <RotateTransform/>
+                                                </Grid.RenderTransform>
+                                                <Path x:Name="arrow"
+                                                        Width="10"
+                                                        Grid.Row="0"
+                                                        Grid.ColumnSpan="2"
+                                                        Height="8"
+                                                        Stretch="Fill"
+                                                        Fill="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"
+                                                        Margin="8 10 -5 5"
+                                                        Data="M10 0 L20 20 L2.3395899E-08 20 z"
+                                                        RenderTransformOrigin="0.5 0.5">
+                                                    <Path.RenderTransform>
+                                                        <RotateTransform Angle="0"/>
+                                                    </Path.RenderTransform>
+                                                </Path>
+                                            </Grid>
+                                        </Grid>
+                                        <telerikPrimitives:LayoutTransformControl RenderTransformOrigin=".5 .5" x:Name="HeaderContentTransform" Grid.Column="0" Grid.Row="0">
+                                            <ContentControl x:Name="HeaderContent"
+                                                    Margin="10 4 10 0"
+                                                    VerticalAlignment="Stretch"
+                                                    HorizontalAlignment="Stretch"
+                                                    DataContext="{TemplateBinding Header}"
+                                                    Content="{Binding}"
+                                                    ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                    FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamilyLight}"
+                                                    FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeXL}"
+                                                    Foreground="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"/>
+                                        </telerikPrimitives:LayoutTransformControl>
+                                    </Grid>
+                                </telerik:RadToggleButton>
+                                <ContentPresenter x:Name="Content"
+                                        Margin="{TemplateBinding Padding}"
+                                        Visibility="Collapsed"
+                                        Content="{TemplateBinding Content}"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ImageEditorNavigationButtonStyle" TargetType="telerik:RadButton">
+        <Setter Property="Width" Value="62"/>
+        <Setter Property="Height" Value="62"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerik:RadButton">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Border">
+                                            <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0.5"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Content">
+                                            <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0.5"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetProperty="Fill" Storyboard.TargetName="Border">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik:Windows8TouchResource ResourceKey=LowBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Border">
+                                            <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0.15"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed"/>
+                                <VisualState x:Name="Focused"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Rectangle x:Name="Border"
+                                Fill="Transparent"
+                                RadiusX="5"
+                                RadiusY="5"
+                                Opacity="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Width="{TemplateBinding Width}"
+                                Height="{TemplateBinding Height}"/>
+                        <ContentPresenter x:Name="Content"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="controls:RadImageEditorUI" x:Key="RadImageEditorUIStyle">
+        <Setter Property="Background" Value="{telerik:Windows8TouchResource ResourceKey=MainBrush}"/>
+        <Setter Property="FontSize" Value="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"/>
+        <Setter Property="FontFamily" Value="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:RadImageEditorUI">
+                    <Grid x:Name="LayoutRoot" Background="{TemplateBinding Background}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" MinWidth="150"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="72"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.ColumnSpan="3" Background="{telerik:Windows8TouchResource ResourceKey=InvertedBrush}">
+                            <StackPanel Orientation="Horizontal" Margin="10 5">
+                                <telerik:RadButton
+                                        Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=OpenCommand, Mode=TwoWay}"
+                                        CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=OpenCommandParameter, Mode=TwoWay}"
+                                        Style="{StaticResource ImageEditorNavigationButtonStyle}"
+                                        Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsOpenButtonVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <ToolTipService.ToolTip>
+                                        <TextBlock telerik:LocalizationManager.ResourceKey="ImageEditor_Open"/>
+                                    </ToolTipService.ToolTip>
+                                    <StackPanel Orientation="Vertical">
+                                        <Path
+                                                Data="M11.9 0 L17.9 0 C19.1 1.3E-07 19.9 0.8 19.9 2.0 L21 2.0 C22.1 2.0 23 2.8 23 4.0 L23 17 C23 18.1 22.1 19 21 19 L2 19 C0.8 19 0 18.1 0 17 L0 4.0 C0 2.8 0.8 2.0 2 2.0 L9.9 2.0 C9.9 0.8 10.8 1.3E-07 11.9 0 z"
+                                                Fill="{telerik:Windows8TouchResource ResourceKey=MainBrush}"
+                                                Height="18"
+                                                Width="20"
+                                                Stretch="Fill"/>
+                                        <TextBlock
+                                                telerik:LocalizationManager.ResourceKey="ImageEditor_Open"
+                                                FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamily}"
+                                                FontSize="{telerik:Windows8TouchResource ResourceKey=FontSize}"
+                                                Foreground="{telerik:Windows8TouchResource ResourceKey=InvertedForegroundBrush}"
+                                                Margin="0 5 0 0"/>
+                                    </StackPanel>
+                                </telerik:RadButton>
+                                <telerik:RadButton
+                                        Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SaveCommand, Mode=TwoWay}"
+                                        CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SaveCommandParameter, Mode=TwoWay}"
+                                        Style="{StaticResource ImageEditorNavigationButtonStyle}"
+                                        Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsSaveButtonVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <ToolTipService.ToolTip>
+                                        <TextBlock telerik:LocalizationManager.ResourceKey="ImageEditor_Save"/>
+                                    </ToolTipService.ToolTip>
+                                    <StackPanel Orientation="Vertical">
+                                        <Path
+                                                Data="M7.5040083 16.470989 L9.3940411 16.470989 C9.6970224 16.470989 9.9460173 16.718979 9.9460173 17.022997 L9.9460173 18.948 C9.9460173 18.95801 9.9390287 18.97101 9.9390287 18.980989 L6.957006 18.980989 C6.957006 18.97101 6.9500175 18.95801 6.9500175 18.948 L6.9500175 17.022997 C6.9500175 16.718979 7.1990128 16.470989 7.5040083 16.470989 z M0.018000107 1.9989994 L0.018000107 17.106998 C0.01299661 17.037998 0 16.971989 0 16.902012 L0 2.200995 C0 2.1319947 0.01299661 2.0650086 0.018000107 1.9989994 z M4.1650014 1.4750056 C3.8599782 1.4750055 3.6109853 1.7230217 3.6109853 2.0299981 L3.6109853 6.4400005 C3.6109853 6.7460003 3.8599782 6.992002 4.1650014 6.992002 L14.863982 6.992002 C15.169005 6.992002 15.417998 6.7460003 15.417998 6.4400005 L15.417998 2.0299981 C15.417998 1.7230217 15.169005 1.4750055 14.863982 1.4750056 z M1.1090006 0 L1.9239728 0 L17.102997 0 L17.958008 0 C18.549988 -1.9710023E-07 19.03299 0.48202482 19.03299 1.0769956 L19.03299 17.912012 C19.03299 18.504999 18.549988 18.988001 17.958008 18.988001 L17.195007 18.988001 L13.718992 18.988001 L13.718992 13.558009 C13.718992 13.251002 13.468992 13.003016 13.165007 13.003016 L5.8630004 13.003016 C5.5589843 13.003016 5.3109984 13.251002 5.3109984 13.558009 L5.3109984 18.988001 L1.8349837 18.988001 L1.1090006 18.988001 C0.51497555 18.988001 0.02998995 18.504999 0.029989874 17.912012 L0.029989874 17.05102 L0.029989874 1.9450065 L0.029989874 1.0769956 C0.02998995 0.48202482 0.51497555 -1.9710023E-07 1.1090006 0 z"
+                                                Fill="{telerik:Windows8TouchResource ResourceKey=MainBrush}"
+                                                Stretch="Fill"
+                                                Width="20"
+                                                Height="20"
+                                                SnapsToDevicePixels="True"/>
+                                        <TextBlock
+                                                telerik:LocalizationManager.ResourceKey="ImageEditor_Save"
+                                                FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamily}"
+                                                FontSize="{telerik:Windows8TouchResource ResourceKey=FontSize}"
+                                                Foreground="{telerik:Windows8TouchResource ResourceKey=InvertedForegroundBrush}"
+                                                Margin="0 5 0 0"/>
+                                    </StackPanel>
+                                </telerik:RadButton>
+                                <telerik:RadButton Command="{Binding Path=Commands.Undo, ElementName=ImageEditor}" Style="{StaticResource ImageEditorNavigationButtonStyle}">
+                                    <ToolTipService.ToolTip>
+                                        <TextBlock telerik:LocalizationManager.ResourceKey="ImageEditor_Undo"/>
+                                    </ToolTipService.ToolTip>
+                                    <StackPanel Orientation="Vertical">
+                                        <Path
+                                                Data="F1M508.3779 249.4609C507.1059 249.2159 505.9639 248.6039 505.0609 247.7249L510.1899 247.4649L507.6249 244.9249L500.3099 245.0849L500.2139 252.3969L502.7819 254.9299L502.9639 250.6489C504.2939 251.8119 505.9129 252.6249 507.6989 252.9699C513.1819 254.0289 518.8699 250.5419 520.0789 244.3189L516.0579 244.2779C515.3699 247.8229 511.9259 250.1479 508.3779 249.4609"
+                                                Fill="{telerik:Windows8TouchResource ResourceKey=MainBrush}"
+                                                Stretch="Fill"
+                                                RenderTransformOrigin="0.5 0.5"
+                                                Width="24"
+                                                Height="16"
+                                                SnapsToDevicePixels="True">
+                                            <Path.RenderTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform ScaleY="-1"/>
+                                                </TransformGroup>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                        <TextBlock
+                                                telerik:LocalizationManager.ResourceKey="ImageEditor_Undo"
+                                                FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamily}"
+                                                FontSize="{telerik:Windows8TouchResource ResourceKey=FontSize}"
+                                                Foreground="{telerik:Windows8TouchResource ResourceKey=InvertedForegroundBrush}"
+                                                Margin="0 9 0 0"/>
+                                    </StackPanel>
+                                </telerik:RadButton>
+                                <telerik:RadButton Command="{Binding Path=Commands.Redo, ElementName=ImageEditor}" Style="{StaticResource ImageEditorNavigationButtonStyle}">
+                                    <ToolTipService.ToolTip>
+                                        <TextBlock telerik:LocalizationManager.ResourceKey="ImageEditor_Redo"/>
+                                    </ToolTipService.ToolTip>
+                                    <StackPanel Orientation="Vertical">
+                                        <Path
+                                                Data="F1M508.3779 249.4609C507.1059 249.2159 505.9639 248.6039 505.0609 247.7249L510.1899 247.4649L507.6249 244.9249L500.3099 245.0849L500.2139 252.3969L502.7819 254.9299L502.9639 250.6489C504.2939 251.8119 505.9129 252.6249 507.6989 252.9699C513.1819 254.0289 518.8699 250.5419 520.0789 244.3189L516.0579 244.2779C515.3699 247.8229 511.9259 250.1479 508.3779 249.4609"
+                                                Fill="{telerik:Windows8TouchResource ResourceKey=MainBrush}"
+                                                Stretch="Fill"
+                                                RenderTransformOrigin="0.5 0.5"
+                                                Width="24"
+                                                Height="16"
+                                                SnapsToDevicePixels="True">
+                                            <Path.RenderTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform ScaleY="-1" ScaleX="-1"/>
+                                                </TransformGroup>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                        <TextBlock
+                                                telerik:LocalizationManager.ResourceKey="ImageEditor_Redo"
+                                                FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamily}"
+                                                FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"
+                                                Foreground="{telerik:Windows8TouchResource ResourceKey=InvertedForegroundBrush}"
+                                                Margin="0 9 0 0"/>
+                                    </StackPanel>
+                                </telerik:RadButton>
+                            </StackPanel>
+                        </Border>
+                        <ScrollViewer
+                                HorizontalScrollBarVisibility="Disabled"
+                                VerticalScrollBarVisibility="Auto"
+                                Background="{TemplateBinding Background}"
+                                Grid.Row="1"
+                                Margin="0 5 0 0"
+                                BorderBrush="{x:Null}">
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <ItemsControl Grid.Row="2" VerticalAlignment="Top" Margin="0 5 0 0" ItemsSource="{TemplateBinding ImageToolsSections}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <telerik:RadExpander Header="{Binding Header}" IsExpanded="True" Style="{StaticResource ImageEditorExpanderStyle}">
+                                                <ItemsControl ItemsSource="{Binding Items}">
+                                                    <ItemsControl.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <StackPanel Margin="0"/>
+                                                        </ItemsPanelTemplate>
+                                                    </ItemsControl.ItemsPanel>
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <controls:RadImageEditorButton
+                                                                    Content="{Binding Text}"
+                                                                    Command="{Binding Command}"
+                                                                    CommandParameter="{Binding CommandParameter}"
+                                                                    CommandTarget="{Binding ElementName=ImageEditor}"
+                                                                    ImageKey="{Binding ImageKey}"
+                                                                    Image="{Binding Image}"/>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </telerik:RadExpander>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Grid>
+                        </ScrollViewer>
+                        <Border
+                                Grid.Column="1"
+                                Background="{telerik:Windows8TouchResource ResourceKey=MainBrush}"
+                                BorderBrush="{telerik:Windows8TouchResource ResourceKey=MediumBrush}"
+                                BorderThickness="1 0"
+                                Margin="0 10"
+                                Grid.Row="1">
+                            <Grid Margin="20 5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                        telerik:LocalizationManager.ResourceKey="ImageEditor_ImagePreview"
+                                        Foreground="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"
+                                        VerticalAlignment="Top"
+                                        FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamilyLight}"
+                                        FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeXL}"/>
+                                <controls:RadImageEditor
+                                        Grid.Row="1"
+                                        x:Name="ImageEditor"
+                                        ToolSettingsContainer="{Binding ElementName=SettingsPanel}"
+                                        VerticalAlignment="Stretch"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="0 8 0 0"
+                                        Image="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Image, Mode=OneWay}"
+                                        IsReadOnly="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsReadOnly, Mode=TwoWay}"/>
+                                <imaging:ZoomController Grid.Row="2" ImageEditor="{Binding ElementName=ImageEditor}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 8"/>
+                            </Grid>
+                        </Border>
+                        <Grid Grid.Row="1" Grid.Column="2" Margin="0 5 0 0">
+                            <toolsUI:ToolSettingsPanel x:Name="SettingsPanel" Visibility="Collapsed"/>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="toolsUI:NumericPropertyEditor" x:Key="NumericPropertyEditorStyle">
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Foreground" Value="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+        <Setter Property="Margin" Value="0 4"/>
+        <Setter Property="FontFamily" Value="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="toolsUI:NumericPropertyEditor">
+                    <Grid x:Name="LayoutRoot" Margin="{TemplateBinding Padding}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" MinWidth="170"/>
+                            <ColumnDefinition Width="Auto" MinWidth="60"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" MinHeight="24"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Grid.ColumnSpan="2"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Text="{TemplateBinding PropertyName}"
+                                Foreground="{TemplateBinding Foreground}"
+                                FontFamily="{TemplateBinding FontFamily}"
+                                FontSize="{TemplateBinding FontSize}"/>
+                        <telerik:RadSlider
+                                Grid.Row="1"
+                                Margin="0 0 10 0"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Value, Mode=TwoWay}"
+                                Minimum="{TemplateBinding MinimumValue}"
+                                Maximum="{TemplateBinding MaximumValue}"/>
+                        <TextBox
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                MaxWidth="75"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Text="{Binding RelativeSource={RelativeSource TemplatedParent}, StringFormat=N2, Path=Value, Mode=TwoWay}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="imaging:PercentComboBox" x:Key="PercentComboBoxStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="imaging:PercentComboBox">
+                    <Grid x:Name="LayoutRoot">
+                        <telerik:RadComboBox x:Name="comboPercent" IsEditable="True" SelectedIndex="3" IsTextSearchEnabled="False" VerticalAlignment="Center" MinHeight="36">
+                            <telerik:RadComboBoxItem telerik:LocalizationManager.ResourceKey="ImageEditor_Auto"/>
+                            <telerik:RadComboBoxItem Content="10%"/>
+                            <telerik:RadComboBoxItem Content="25%"/>
+                            <telerik:RadComboBoxItem Content="50%"/>
+                            <telerik:RadComboBoxItem Content="100%"/>
+                            <telerik:RadComboBoxItem Content="150%"/>
+                            <telerik:RadComboBoxItem Content="200%"/>
+                            <telerik:RadComboBoxItem Content="500%"/>
+                        </telerik:RadComboBox>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="imaging:ZoomController" x:Key="ZoomControllerStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="imaging:ZoomController">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" MinWidth="150"/>
+                            <ColumnDefinition Width="Auto" MinWidth="86"/>
+                        </Grid.ColumnDefinitions>
+                        <telerik:RadSlider Grid.Column="0" x:Name="ZoomSlider" Minimum="0" Maximum="1" Margin="0 0 10 0" SmallChange="0.01" LargeChange="0.025" VerticalAlignment="Center"/>
+                        <imaging:PercentComboBox Grid.Column="1" x:Name="ZoomComboBox"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="controls:RadImageEditorButton" x:Key="RadImageEditorButtonStyle">
+        <Setter Property="ImageThemeKey" Value="{StaticResource ImageThemeKeyString}"/>
+        <Setter Property="IsBackgroundVisible" Value="False"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Margin" Value="0 1"/>
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="{telerik:Windows8TouchResource ResourceKey=MainBrush}"/>
+        <Setter Property="Background" Value="{telerik:Windows8TouchResource ResourceKey=MainBrush}"/>
+        <Setter Property="Foreground" Value="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+        <Setter Property="FontFamily" Value="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="Padding" Value="3 8"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:RadImageEditorButton">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="00:00:00.050">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Opacity">
+                                            <LinearDoubleKeyFrame KeyTime="00:00:00.050" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik:Windows8TouchResource ResourceKey=LowBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="CommonStatesWrapper" Storyboard.TargetProperty="Opacity">
+                                            <DiscreteDoubleKeyFrame KeyTime="00:00:00.050" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="00:00:00.050">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Opacity">
+                                            <LinearDoubleKeyFrame KeyTime="00:00:00.050" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik:Windows8TouchResource ResourceKey=LowBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="Border" Storyboard.TargetProperty="Opacity" To="0.5"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="Content" Storyboard.TargetProperty="Opacity" To="0.5"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="Image" Storyboard.TargetProperty="Opacity" To="0.5"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStatesGroup">
+                                <VisualState x:Name="Unfocused">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="00:00:00.150">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity">
+                                            <LinearDoubleKeyFrame KeyTime="00:00:00.150" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity">
+                                            <LinearDoubleKeyFrame KeyTime="00:00:00.115" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border x:Name="Border"
+                                Grid.ColumnSpan="2"
+                                Opacity="0"
+                                Visibility="Collapsed"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                Background="{TemplateBinding Background}"/>
+                        <Image x:Name="Image"
+                                Width="16"
+                                Height="16"
+                                VerticalAlignment="Center"
+                                Margin="8 0"
+                                HorizontalAlignment="Left"
+                                RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                RenderOptions.EdgeMode="Aliased"/>
+                        <ContentPresenter x:Name="Content"
+                                Grid.Column="1"
+                                Margin="{TemplateBinding Padding}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                RecognizesAccessKey="True"/>
+                        <Border x:Name="CommonStatesWrapper" Grid.ColumnSpan="2">
+                            <Border x:Name="FocusVisual" Visibility="Collapsed" Opacity="0" BorderThickness="1" BorderBrush="{telerik:Windows8TouchResource ResourceKey=LowBrush}"/>
+                        </Border>
+                        <Rectangle Fill="Transparent" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="toolsUI:RoundCornersToolSettings" x:Key="RoundCornersToolSettingsStyle">
+        <Setter Property="FontFamily" Value="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"/>
+        <Setter Property="Foreground" Value="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Padding" Value="{StaticResource ToolSettings_ControlPadding}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="toolsUI:RoundCornersToolSettings">
+                    <Grid>
+                        <Grid Margin="{TemplateBinding Padding}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="roundCornersHeaderHelperTextBlock" telerik:LocalizationManager.ResourceKey="ImageEditor_RoundCorners" Visibility="Collapsed"/>
+                            <TextBlock
+                                    FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamilyLight}"
+                                    Foreground="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"
+                                    FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeXL}"
+                                    Text="{Binding ElementName=roundCornersHeaderHelperTextBlock, Path=Text}"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    TextWrapping="Wrap"
+                                    Margin="{StaticResource ToolSettingsHeader_Margin}"/>
+                            <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}" Margin="{StaticResource ToolSettings_ContentPresenterMargin}" Row="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="radiusHelperTextBlock" Grid.Row="0" Grid.ColumnSpan="2" Visibility="Collapsed" telerik:LocalizationManager.ResourceKey="ImageEditor_Radius"/>
+                                <toolsUI:NumericPropertyEditor
+                                        PropertyName="{Binding ElementName=radiusHelperTextBlock, Path=Text}"
+                                        Grid.Row="0"
+                                        Grid.ColumnSpan="2"
+                                        MinimumValue="0"
+                                        MaximumValue="50"
+                                        VerticalAlignment="Center"
+                                        Name="SliderRadius"/>
+                                <TextBlock
+                                        Grid.Row="1"
+                                        VerticalAlignment="Center"
+                                        Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"
+                                        telerik:LocalizationManager.ResourceKey="ImageEditor_Background"/>
+                                <telerik:RadColorPicker
+                                        AutomaticColor="Transparent"
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        x:Name="ColorPickerBackground"
+                                        NoColorVisibility="Visible"
+                                        Margin="0 5"
+                                        HorizontalAlignment="Right"
+                                        NoColorText="{telerik:LocalizableResource Key=ImageEditor_ColorPicker_NoColorText_Transparent}"/>
+                                <TextBlock x:Name="borderThicknessHelperTextBlock"
+                                        Grid.Row="2"
+                                        Grid.ColumnSpan="2"
+                                        Visibility="Collapsed"
+                                        telerik:LocalizationManager.ResourceKey="ImageEditor_BorderThickness"/>
+                                <toolsUI:NumericPropertyEditor
+                                        PropertyName="{Binding ElementName=borderThicknessHelperTextBlock, Path=Text}"
+                                        Grid.Row="2"
+                                        Grid.ColumnSpan="2"
+                                        MinimumValue="0"
+                                        MaximumValue="10"
+                                        x:Name="SliderBorderThickness"/>
+                                <TextBlock
+                                        Grid.Row="3"
+                                        VerticalAlignment="Center"
+                                        Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"
+                                        telerik:LocalizationManager.ResourceKey="ImageEditor_BorderColor"/>
+                                <telerik:RadColorPicker
+                                        AutomaticColor="Transparent"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        x:Name="ColorPickerBorder"
+                                        NoColorVisibility="Visible"
+                                        NoColorText="{telerik:LocalizableResource Key=ImageEditor_ColorPicker_NoColorText_Transparent}"
+                                        Margin="0 5"
+                                        HorizontalAlignment="Right"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="toolsUI:CanvasResizeToolSettings" x:Key="CanvasResizeToolSettingsStyle">
+        <Setter Property="FontFamily" Value="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"/>
+        <Setter Property="Foreground" Value="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Padding" Value="{StaticResource ToolSettings_ControlPadding}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="toolsUI:CanvasResizeToolSettings">
+                    <Grid Margin="{TemplateBinding Padding}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="canvasResizeHeaderHelperTextBlock" telerik:LocalizationManager.ResourceKey="ImageEditor_CanvasResize" Visibility="Collapsed"/>
+                        <TextBlock
+                                FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamilyLight}"
+                                Foreground="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"
+                                FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeXL}"
+                                Text="{Binding ElementName=canvasResizeHeaderHelperTextBlock, Path=Text}"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                TextWrapping="Wrap"
+                                Margin="{StaticResource ToolSettingsHeader_Margin}"/>
+                        <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}" Margin="{StaticResource ToolSettings_ContentPresenterMargin}" Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" MinHeight="26"/>
+                                <RowDefinition Height="Auto" MinHeight="26"/>
+                                <RowDefinition Height="Auto" MinHeight="26"/>
+                                <RowDefinition Height="Auto" MinHeight="26"/>
+                                <RowDefinition Height="Auto" MinHeight="26"/>
+                                <RowDefinition Height="Auto" MinHeight="26"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                    telerik:LocalizationManager.ResourceKey="ImageEditor_CanvasSize"
+                                    Grid.ColumnSpan="4"
+                                    VerticalAlignment="Center"
+                                    Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+                            <TextBlock x:Name="LabelCanvasSize"
+                                    Grid.Column="3"
+                                    Grid.ColumnSpan="3"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <TextBlock telerik:LocalizationManager.ResourceKey="ImageEditor_Width" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                <TextBlock Text="(px)" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="2 0 5 0"/>
+                            </StackPanel>
+                            <telerik:RadNumericUpDown x:Name="NumericWidthPx"
+                                    Grid.Row="2"
+                                    Grid.Column="0"
+                                    IsInteger="True"
+                                    Maximum="4000"
+                                    Width="140"
+                                    Minimum="1"
+                                    NumberDecimalDigits="0"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    UpdateValueEvent="PropertyChanged"
+                                    Margin="0 0 10 0"/>
+                            <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal">
+                                <TextBlock telerik:LocalizationManager.ResourceKey="ImageEditor_Height" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                <TextBlock Text="(px)" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="2 0 5 0"/>
+                            </StackPanel>
+                            <telerik:RadNumericUpDown x:Name="NumericHeightPx"
+                                    Grid.Row="2"
+                                    Grid.Column="3"
+                                    IsInteger="True"
+                                    Maximum="4000"
+                                    Minimum="1"
+                                    Width="140"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    NumberDecimalDigits="0"
+                                    UpdateValueEvent="PropertyChanged"
+                                    Margin="0"/>
+                            <TextBlock Grid.Row="3" Grid.ColumnSpan="6" telerik:LocalizationManager.ResourceKey="ImageEditor_ImageAlignment" VerticalAlignment="Center" Margin="0 20 0 0"/>
+                            <Grid Grid.Row="4" Grid.ColumnSpan="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="150" Margin="0 10 0 5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <telerik:RadRadioButton Grid.Row="0" Grid.Column="0" x:Name="AlignTL"/>
+                                <telerik:RadRadioButton Grid.Row="0" Grid.Column="1" x:Name="AlignTC"/>
+                                <telerik:RadRadioButton Grid.Row="0" Grid.Column="2" x:Name="AlignTR"/>
+                                <telerik:RadRadioButton Grid.Row="1" Grid.Column="0" x:Name="AlignCL"/>
+                                <telerik:RadRadioButton Grid.Row="1" Grid.Column="1" x:Name="AlignCC"/>
+                                <telerik:RadRadioButton Grid.Row="1" Grid.Column="2" x:Name="AlignCR"/>
+                                <telerik:RadRadioButton Grid.Row="2" Grid.Column="0" x:Name="AlignBL"/>
+                                <telerik:RadRadioButton Grid.Row="2" Grid.Column="1" x:Name="AlignBC"/>
+                                <telerik:RadRadioButton Grid.Row="2" Grid.Column="2" x:Name="AlignBR"/>
+                            </Grid>
+                            <TextBlock
+                                    Grid.Row="5"
+                                    Grid.ColumnSpan="4"
+                                    telerik:LocalizationManager.ResourceKey="ImageEditor_Background"
+                                    VerticalAlignment="Center"
+                                    Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+                            <telerik:RadColorPicker
+                                    AutomaticColor="Transparent"
+                                    Grid.Row="5"
+                                    Grid.Column="3"
+                                    Grid.ColumnSpan="3"
+                                    x:Name="ColorPickerBackground"
+                                    NoColorVisibility="Visible"
+                                    Margin="0 5"
+                                    NoColorText="{telerik:LocalizableResource Key=ImageEditor_ColorPicker_NoColorText_Transparent}"
+                                    HorizontalAlignment="Right"/>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="toolsUI:DrawTextToolSettings" x:Key="DrawTextToolSettingsStyle">
+        <Setter Property="FontFamily" Value="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"/>
+        <Setter Property="Foreground" Value="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Padding" Value="{StaticResource ToolSettings_ControlPadding}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="toolsUI:DrawTextToolSettings">
+                    <Grid Margin="{TemplateBinding Padding}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="drawtextHelperTextBlock" telerik:LocalizationManager.ResourceKey="ImageEditor_DrawText" Visibility="Collapsed"/>
+                            <TextBlock
+                                    Text="{Binding ElementName=drawtextHelperTextBlock, Path=Text}"
+                                    FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamilyLight}"
+                                    FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeXL}"
+                                    Foreground="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    TextWrapping="Wrap"
+                                    Margin="{StaticResource ToolSettingsHeader_Margin}"/>
+                            <Grid Grid.Row="2" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" Margin="{StaticResource ToolSettings_ContentPresenterMargin}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                        Grid.Row="0"
+                                        Grid.ColumnSpan="2"
+                                        VerticalAlignment="Center"
+                                        Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"
+                                        telerik:LocalizationManager.ResourceKey="ImageEditor_Text"/>
+                                <TextBox
+                                        Grid.Row="1"
+                                        Grid.ColumnSpan="2"
+                                        Name="TextBox"
+                                        VerticalAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Width="188"
+                                        HorizontalAlignment="Left"
+                                        SnapsToDevicePixels="True"/>
+                                <TextBlock x:Name="fontSizeHelperTextBlock" Grid.Row="2" Grid.ColumnSpan="2" Visibility="Collapsed" telerik:LocalizationManager.ResourceKey="ImageEditor_FontSize"/>
+                                <toolsUI:NumericPropertyEditor PropertyName="{Binding ElementName=fontSizeHelperTextBlock, Path=Text}" Grid.Row="2" Grid.ColumnSpan="2" MinimumValue="1" MaximumValue="160" x:Name="NumericFontSize"/>
+                                <TextBlock
+                                        Grid.Row="3"
+                                        VerticalAlignment="Center"
+                                        Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"
+                                        telerik:LocalizationManager.ResourceKey="ImageEditor_TextColor"/>
+                                <telerik:RadColorPicker
+                                        AutomaticColor="Black"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        x:Name="ColorPickerText"
+                                        NoColorVisibility="Visible"
+                                        HorizontalAlignment="Right"
+                                        NoColorText="{telerik:LocalizableResource Key=ImageEditor_ColorPicker_NoColorText_Black}"/>
+                                <TextBlock x:Name="horizontalPositionHelperTextBlock"
+                                        Grid.Row="4"
+                                        Grid.ColumnSpan="2"
+                                        Visibility="Collapsed"
+                                        telerik:LocalizationManager.ResourceKey="ImageEditor_HorizontalPosition"/>
+                                <toolsUI:NumericPropertyEditor PropertyName="{Binding ElementName=horizontalPositionHelperTextBlock, Path=Text}" Grid.Row="4" Grid.ColumnSpan="2" Name="NumericPositionX"/>
+                                <TextBlock x:Name="verticalPositionHelperTextBlock"
+                                        Grid.Row="5"
+                                        Grid.ColumnSpan="2"
+                                        Visibility="Collapsed"
+                                        telerik:LocalizationManager.ResourceKey="ImageEditor_VerticalPosition"/>
+                                <toolsUI:NumericPropertyEditor PropertyName="{Binding ElementName=verticalPositionHelperTextBlock, Path=Text}" Grid.Row="5" Grid.ColumnSpan="2" Name="NumericPositionY"/>
+                                <TextBlock x:Name="rotationHelperTextBlock" Grid.Row="6" Grid.ColumnSpan="2" Visibility="Collapsed" telerik:LocalizationManager.ResourceKey="ImageEditor_Rotation"/>
+                                <toolsUI:NumericPropertyEditor
+                                        PropertyName="{Binding ElementName=rotationHelperTextBlock, Path=Text}"
+                                        Grid.Row="6"
+                                        Grid.ColumnSpan="2"
+                                        Name="NumericRotationDegrees"
+                                        MaximumValue="180"
+                                        MinimumValue="-180"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="toolsUI:ResizeToolSettings" x:Key="ResizeToolSettingsStyle">
+        <Setter Property="FontFamily" Value="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"/>
+        <Setter Property="Foreground" Value="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Padding" Value="{StaticResource ToolSettings_ControlPadding}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="toolsUI:ResizeToolSettings">
+                    <Grid Margin="{TemplateBinding Padding}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="resizeHeaderHelperTextBlock" telerik:LocalizationManager.ResourceKey="ImageEditor_Resize" Visibility="Collapsed"/>
+                            <TextBlock
+                                    Text="{Binding ElementName=resizeHeaderHelperTextBlock, Path=Text}"
+                                    FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamilyLight}"
+                                    FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeXL}"
+                                    Foreground="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    TextWrapping="Wrap"
+                                    Margin="{StaticResource ToolSettingsHeader_Margin}"/>
+                            <Grid Grid.Row="2" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" Margin="{StaticResource ToolSettings_ContentPresenterMargin}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                    <RowDefinition Height="Auto" MinHeight="26"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                        telerik:LocalizationManager.ResourceKey="ImageEditor_ImageSize"
+                                        Grid.ColumnSpan="6"
+                                        VerticalAlignment="Center"
+                                        Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+                                <TextBlock x:Name="LabelImageSize"
+                                        Grid.Column="3"
+                                        Grid.ColumnSpan="3"
+                                        FontWeight="Bold"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+                                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                    <TextBlock telerik:LocalizationManager.ResourceKey="ImageEditor_Width" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="(px)" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="2 0 5 0"/>
+                                </StackPanel>
+                                <telerik:RadNumericUpDown x:Name="NumericWidthPx"
+                                        Grid.Row="2"
+                                        Grid.Column="0"
+                                        IsInteger="True"
+                                        Maximum="4000"
+                                        Width="140"
+                                        Minimum="1"
+                                        NumberDecimalDigits="0"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="0 0 10 0"
+                                        UpdateValueEvent="PropertyChanged"/>
+                                <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal">
+                                    <TextBlock telerik:LocalizationManager.ResourceKey="ImageEditor_Height" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="(px)" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="2 0 5 0"/>
+                                </StackPanel>
+                                <telerik:RadNumericUpDown x:Name="NumericHeightPx"
+                                        Grid.Row="2"
+                                        Grid.Column="3"
+                                        IsInteger="True"
+                                        Maximum="4000"
+                                        Minimum="1"
+                                        Width="140"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="0"
+                                        NumberDecimalDigits="0"
+                                        UpdateValueEvent="PropertyChanged"/>
+                                <TextBlock Grid.Row="3" Grid.ColumnSpan="6" telerik:LocalizationManager.ResourceKey="ImageEditor_RelativeSize" VerticalAlignment="Center" Margin="0 20 0 0"/>
+                                <StackPanel Grid.Row="4" Orientation="Horizontal">
+                                    <TextBlock telerik:LocalizationManager.ResourceKey="ImageEditor_Width" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="(%)" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="2 0 5 0" Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+                                </StackPanel>
+                                <telerik:RadNumericUpDown x:Name="NumericWidthPercent"
+                                        Grid.Row="5"
+                                        Grid.Column="0"
+                                        IsInteger="False"
+                                        Maximum="100000"
+                                        Minimum="0"
+                                        Width="140"
+                                        Margin="0 0 10 0"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        NumberDecimalDigits="2"
+                                        UpdateValueEvent="PropertyChanged"/>
+                                <StackPanel Grid.Row="4" Grid.Column="3" Orientation="Horizontal">
+                                    <TextBlock telerik:LocalizationManager.ResourceKey="ImageEditor_Height" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="(%)" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="2 0 5 0"/>
+                                </StackPanel>
+                                <telerik:RadNumericUpDown x:Name="NumericHeightPercent"
+                                        Grid.Row="5"
+                                        Grid.Column="3"
+                                        IsInteger="False"
+                                        Maximum="100000"
+                                        Minimum="0"
+                                        Width="140"
+                                        NumberDecimalDigits="2"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="0"
+                                        UpdateValueEvent="PropertyChanged"/>
+                                <TextBlock Grid.Row="6" Grid.ColumnSpan="6" telerik:LocalizationManager.ResourceKey="ImageEditor_Options" VerticalAlignment="Center" Margin="0 20 0 0"/>
+                                <CheckBox Grid.Row="7" Grid.ColumnSpan="6" IsChecked="True" Name="CheckPreserveAspectRatio" VerticalAlignment="Center">
+                                    <TextBlock telerik:LocalizationManager.ResourceKey="ImageEditor_PreserveAspectRatio" VerticalAlignment="Center" Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+                                </CheckBox>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="toolsUI:ToolSettingsHeader" x:Key="ToolSettingsHeaderStyle">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="toolsUI:ToolSettingsHeader">
+                    <Grid Margin="{StaticResource ToolSettings_ControlPadding}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                                DataContext="{TemplateBinding Header}"
+                                Text="{Binding}"
+                                Grid.Row="0"
+                                Foreground="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"
+                                FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamilyLight}"
+                                FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeXL}"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                TextWrapping="Wrap"
+                                Margin="{StaticResource ToolSettingsHeader_Margin}"/>
+                        <Grid Grid.Row="2" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" Margin="{StaticResource ToolSettings_ShortContentPresenterMargin}">
+                            <ContentPresenter/>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="toolsUI:DrawToolSettings" x:Key="DrawToolSettingsStyle">
+        <Setter Property="FontFamily" Value="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"/>
+        <Setter Property="Foreground" Value="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Padding" Value="{StaticResource ToolSettings_ControlPadding}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="toolsUI:DrawToolSettings">
+                    <Grid Margin="{TemplateBinding Padding}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="drawToolHeaderHelperTextBlock" telerik:LocalizationManager.ResourceKey="ImageEditor_Draw" Visibility="Collapsed"/>
+                        <TextBlock
+                                FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamilyLight}"
+                                Foreground="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"
+                                FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeXL}"
+                                Text="{Binding ElementName=drawToolHeaderHelperTextBlock, Path=Text}"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                TextWrapping="Wrap"
+                                Margin="{StaticResource ToolSettingsHeader_Margin}"/>
+                        <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}" Margin="{StaticResource ToolSettings_ContentPresenterMargin}" Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                    telerik:LocalizationManager.ResourceKey="ImageEditor_DrawTool_BrushSize"
+                                    Margin="0 2"
+                                    Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"
+                                    VerticalAlignment="Center"/>
+                            <telerik:RadNumericUpDown x:Name="PART_BrushSizeNumericUpDown" Value="1" Grid.Column="1" Minimum="1" Maximum="99" Margin="0 2" HorizontalAlignment="Right" Width="125"/>
+                            <TextBlock
+                                    telerik:LocalizationManager.ResourceKey="ImageEditor_DrawTool_BrushColor"
+                                    Grid.Row="2"
+                                    Margin="0 2"
+                                    Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"
+                                    VerticalAlignment="Center"/>
+                            <telerik:RadColorPicker
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    SelectedColor="Black"
+                                    x:Name="PART_ColorPicker"
+                                    Margin="0 2"
+                                    HorizontalAlignment="Right"
+                                    AutomaticColor="Black"
+                                    NoColorText="{telerik:LocalizableResource Key=ImageEditor_ColorPicker_NoColorText_Black}"/>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="toolsUI:ShapeToolSettings" x:Key="ShapeToolSettingsStyle">
+        <Setter Property="Foreground" Value="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+        <Setter Property="FontFamily" Value="{telerik:Windows8TouchResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik:Windows8TouchResource ResourceKey=FontSizeL}"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Padding" Value="{StaticResource ToolSettings_ControlPadding}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="toolsUI:ShapeToolSettings">
+                    <Grid Margin="{TemplateBinding Padding}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="shapeToolHelperTextBlock" telerik:LocalizationManager.ResourceKey="ImageEditor_ShapeTool_Shape" Visibility="Collapsed"/>
+                        <TextBlock
+                                Margin="{StaticResource ToolSettingsHeader_Margin}"
+                                FontSize="{telerik:Windows8TouchResource ResourceKey=FontSizeXL}"
+                                FontFamily="{telerik:Windows8TouchResource ResourceKey=FontFamilyLight}"
+                                Foreground="{telerik:Windows8TouchResource ResourceKey=AccentBrush}"
+                                FontWeight="Bold"
+                                Text="{Binding ElementName=shapeToolHelperTextBlock, Path=Text}"/>
+                        <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}" Margin="{StaticResource ToolSettings_ContentPresenterMargin}" Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" MinHeight="26"/>
+                                <RowDefinition Height="Auto" MinHeight="26"/>
+                                <RowDefinition Height="Auto" MinHeight="26"/>
+                                <RowDefinition Height="Auto" MinHeight="26"/>
+                                <RowDefinition Height="Auto" MinHeight="26"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock telerik:LocalizationManager.ResourceKey="ImageEditor_ShapeTool_Shape" VerticalAlignment="Center"/>
+                            <telerik:RadComboBox x:Name="PART_ShapeComboBox"
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Right"
+                                    SelectedIndex="0"
+                                    Width="125"
+                                    DisplayMemberPath="DisplayName"
+                                    VerticalAlignment="Center"
+                                    Margin="0 4"/>
+                            <TextBlock telerik:LocalizationManager.ResourceKey="ImageEditor_ShapeTool_ShapeFill" Grid.Row="1" VerticalAlignment="Center"/>
+                            <telerik:RadColorPicker
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    SelectedColor="Transparent"
+                                    x:Name="PART_FillColorPicker"
+                                    Margin="0 4"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    AutomaticColor="Transparent"
+                                    NoColorText="{telerik:LocalizableResource Key=ImageEditor_ColorPicker_NoColorText_Transparent}"/>
+                            <TextBlock telerik:LocalizationManager.ResourceKey="ImageEditor_ShapeTool_BorderThickness" Grid.Row="2" VerticalAlignment="Center" Margin="0 0 7 0"/>
+                            <telerik:RadNumericUpDown x:Name="PART_BrushSizeNumericUpDown"
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    Value="1"
+                                    Minimum="1"
+                                    Maximum="99"
+                                    Margin="0 4"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Width="125"/>
+                            <TextBlock telerik:LocalizationManager.ResourceKey="ImageEditor_ShapeTool_BorderColor" Grid.Row="3" VerticalAlignment="Center"/>
+                            <telerik:RadColorPicker x:Name="PART_StrokeColorPicker"
+                                    Grid.Row="3"
+                                    Grid.Column="1"
+                                    Margin="0 4"
+                                    SelectedColor="Black"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    AutomaticColor="Black"
+                                    NoColorText="{telerik:LocalizableResource Key=ImageEditor_ColorPicker_NoColorText_Black}"/>
+                            <CheckBox x:Name="PART_LockRatioCheckBox"
+                                    Grid.Row="4"
+                                    telerik:LocalizationManager.ResourceKey="ImageEditor_ShapeTool_LockRatio"
+                                    HorizontalAlignment="Left"
+                                    IsChecked="False"
+                                    Margin="0 5"
+                                    Foreground="{telerik:Windows8TouchResource ResourceKey=MainForegroundBrush}"/>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="controls:RadImageEditor" BasedOn="{StaticResource RadImageEditorStyle}"/>
+    <Style TargetType="toolsUI:InlineToolSettingsPane" BasedOn="{StaticResource InlineToolSettingsPaneStyle}"/>
+    <Style TargetType="toolsUI:ToolSettingsPanel" BasedOn="{StaticResource ToolSettingsPanelStyle}"/>
+    <Style TargetType="toolsUI:CropAdorner" BasedOn="{StaticResource CropAdornerStyle}"/>
+    <Style TargetType="controls:RadImageEditorUI" BasedOn="{StaticResource RadImageEditorUIStyle}"/>
+    <Style TargetType="toolsUI:NumericPropertyEditor" BasedOn="{StaticResource NumericPropertyEditorStyle}"/>
+    <Style TargetType="imaging:ZoomController" BasedOn="{StaticResource ZoomControllerStyle}"/>
+    <Style TargetType="imaging:PercentComboBox" BasedOn="{StaticResource PercentComboBoxStyle}"/>
+    <Style TargetType="controls:RadImageEditorButton" BasedOn="{StaticResource RadImageEditorButtonStyle}"/>
+    <Style TargetType="toolsUI:RoundCornersToolSettings" BasedOn="{StaticResource RoundCornersToolSettingsStyle}"/>
+    <Style TargetType="toolsUI:CanvasResizeToolSettings" BasedOn="{StaticResource CanvasResizeToolSettingsStyle}"/>
+    <Style TargetType="toolsUI:DrawTextToolSettings" BasedOn="{StaticResource DrawTextToolSettingsStyle}"/>
+    <Style TargetType="toolsUI:ResizeToolSettings" BasedOn="{StaticResource ResizeToolSettingsStyle}"/>
+    <Style TargetType="toolsUI:ToolSettingsHeader" BasedOn="{StaticResource ToolSettingsHeaderStyle}"/>
+    <Style TargetType="toolsUI:DrawToolSettings" BasedOn="{StaticResource DrawToolSettingsStyle}"/>
+    <Style TargetType="toolsUI:ShapeToolSettings" BasedOn="{StaticResource ShapeToolSettingsStyle}"/>
+</ResourceDictionary>

@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="SwipeDesktop.Views.TardyPass"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+            d:DesignHeight="300" d:DesignWidth="400">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/StandardStyles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate x:Key="StatsTemplate">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Width="175" Text="{Binding Description}" Style="{StaticResource PassTextBlockMedium}" FontWeight="Bold"/>
+                    <TextBlock Width="50" Text="{Binding MonthToDate}" Style="{StaticResource PassTextBlockLarge}" FontWeight="Bold" HorizontalAlignment="Right" TextAlignment="Right"/>
+                    <TextBlock Width="50" Text="{Binding YearToDate}" Style="{StaticResource PassTextBlockLarge}" FontWeight="Bold" HorizontalAlignment="Right" TextAlignment="Right"/>
+                </StackPanel>
+            </DataTemplate>
+        </ResourceDictionary>
+        
+    </UserControl.Resources>
+    <Grid x:Name="StudentPassTemplate" Style="{StaticResource LayoutRootGridStyle}" Margin="0,0,0,0">
+        <StackPanel Orientation="Vertical" Width="400" Margin="0">
+            <Grid Style="{StaticResource TardyPassDemographicGrid}" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0">
+
+                    </ColumnDefinition>
+                    <ColumnDefinition Width="*">
+
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <Label Grid.Column="1" Content="{Binding SchoolName}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="auto" Width="auto" Style="{StaticResource TardySchoolLabel}"/>
+                    <Label HorizontalAlignment="left" Content="{Binding DataModel.PassDescription, Mode=OneWay}" VerticalAlignment="Center" Style="{StaticResource InverseBlackDescription}" Height="auto" />
+
+                </StackPanel>
+              
+            </Grid>
+            <Grid Style="{StaticResource TardyPassDemographicGrid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*">
+
+                    </ColumnDefinition>
+                    <ColumnDefinition Width="125" >
+
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel  Grid.Column="1" Orientation="Vertical">
+                    <Label Content="{Binding DataModel.StationName}" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource PassLabelSmall}"/>
+                    <Border Margin="2,0,2,0" VerticalAlignment="Bottom">
+                        <Image Source="{Binding DataModel.ScanImage}" MinHeight="100" MinWidth="100" MaxHeight="125" MaxWidth="125" RenderOptions.BitmapScalingMode="HighQuality"/>
+                    </Border>
+                </StackPanel>
+
+
+                <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="0">
+                    <TextBlock Text="{Binding DataModel.FormattedDate, Mode=OneWay}" VerticalAlignment="Top" Style="{StaticResource TardyPassFormattedDateBlock}" Margin="0" Height="auto" />
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding DataModel.StudentName, Mode=OneWay}" VerticalAlignment="Top" Style="{StaticResource TardyPassStudentLabel}" Height="auto" />
+                        <Label x:Name="BarcodeLabel" Content="{Binding DataModel.Barcode, Mode=OneWay}" VerticalAlignment="Top" Padding="5 0" Style="{StaticResource TardyPassStudentLabel}" Height="auto" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding DataModel.GradeLabel, Mode=OneWay}" VerticalAlignment="Top" Style="{StaticResource TardyPassLabel}" Height="auto" Padding="0,0,5,0" />
+                        <Label Content="{Binding DataModel.HomeroomLabel, Mode=OneWay}" VerticalAlignment="Top" Style="{StaticResource TardyPassLabel}" Height="auto" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" x:Name="TardyStatsHeader">
+                        <TextBlock Width="175" Text=""/>
+                        <TextBlock Width="50" Text="MTD" Style="{StaticResource HeaderLarge}"/>
+                        <TextBlock Width="50" Text="YTD" Style="{StaticResource HeaderLarge}"/>
+                    </StackPanel>
+                    <ItemsControl x:Name="TardyStats"
+                      Width="Auto"
+                      Height="Auto"
+                      ItemsSource="{Binding DataModel.TardyStats, Mode=OneWay}"
+                      ItemTemplate="{StaticResource StatsTemplate}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                  
+                </StackPanel>
+               
+            </Grid>
+            </StackPanel>
+
+    </Grid>
+</UserControl>

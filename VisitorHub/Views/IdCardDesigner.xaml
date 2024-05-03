@@ -1,0 +1,241 @@
+﻿<UserControl x:Class="SwipeDesktop.Views.IdCardDesigner"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="780"  Loaded="Content_Loaded">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/ScrollbarStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" Margin="5">
+            <Button x:Name="btnNew" Content="Create New Card" Width="120" Margin="5" Click="btnNew_Click"/>
+            <Button x:Name="btnLoad" Content="Load Existing Card" Width="120" Margin="5" Click="btnLoad_Click"/>
+            <Button x:Name="btnDuplicate" Content="Duplicate Card" Width="120" Margin="5" IsEnabled="False" Click="btnDuplicate_Click"/>
+            <Button x:Name="btnSave" Content="Save Card" Width="120" Margin="5" IsEnabled="False" Click="btnSave_Click"/>
+            <Button x:Name="btnDelete" Content="Delete Card" Width="120" Margin="5" IsEnabled="False" Click="btnDelete_Click"/>
+            <Button x:Name="btnBatch" Content="Batch Print" Width="120" Margin="5" IsEnabled="True" Click="btnBatch_Click" Visibility="Visible"/>
+            <Button x:Name="btnTestPrint" Content="Test Print" Width="120" Margin="5" IsEnabled="True" Click="btnTestPrint_Click" Visibility="Visible"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" >
+            <GroupBox x:Name="gbCardInfo" Header="Card Information" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Width="542" Margin="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="115"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label x:Name="lblCardName" Content="Name:" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0"/>
+                    <TextBlock x:Name="txtBlkCardName" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" Margin="5" FontWeight="Bold"/>
+
+                    <Label x:Name="lblCardType" Content="Type:" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0"/>
+                    <TextBlock x:Name="txtBlkCardType" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Margin="5" FontWeight="Bold"/>
+
+                    <Label x:Name="lblFrontOrientation" Content="Front Orientation:" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="2"/>
+                    <TextBlock x:Name="txtBlkFrontOrientation" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="3" Margin="5" FontWeight="Bold"/>
+
+                    <Label x:Name="lblBackOrientation" Content="Back Orientation:" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="2"/>
+                    <TextBlock x:Name="txtBlkBackOrientation" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="3" Margin="5" FontWeight="Bold"/>
+
+                    <CheckBox x:Name="chkTempCard" Content="Temporary Card" HorizontalAlignment="Left" IsEnabled="False" Grid.Row="2" Grid.Column="1" Margin="5"/>
+                </Grid>
+            </GroupBox>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" >
+
+                    <GroupBox Header="Fields" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Width="185" Margin="1" IsEnabled="True">
+                        <ListBox x:Name="lstAddFields" HorizontalAlignment="Left" VerticalAlignment="Top" Height="240" Width="170" DisplayMemberPath="Key" Margin="1" MouseDoubleClick="lstAddFields_SelectionChanged"/>
+                    </GroupBox>
+                    <GroupBox x:Name="gbBackground"  Header="Background" HorizontalAlignment="Left" VerticalAlignment="Top" Height="auto" Width="185" Margin="1" IsEnabled="False">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Margin="5">
+                                <TextBox  Name="txtBackground" Width="130"/>
+                                <Button x:Name="btnBackground" ToolTip="Select Card Background Image" Click="btnBackground_Click">
+                                    <Image Source="pack://application:,,,/Views/Media/image.png"></Image>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="5,5,11,5">
+                                <Slider Name="sldOpacity" Width="130" ToolTip="Set Background Opacity" TickPlacement="BottomRight" TickFrequency=".1" ValueChanged="sldOpacity_ValueChanged" Minimum="0" Maximum="1" SmallChange=".1" LargeChange=".1"/>
+                                <Button x:Name="btnRemoveBackground" ToolTip="Remove Background Image" Click="btnRemoveBackground_Click" Margin="2">
+                                    <Image Source="pack://application:,,,/Views/Media/delete.png"></Image>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+
+                <GroupBox Header="Canvas" HorizontalAlignment="Center" VerticalAlignment="Top" Height="355" Width="Auto" Margin="2">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <StackPanel Name="spFrontBack" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="1" IsEnabled="False">
+                            <RadioButton Name="rbCardFront" GroupName="rbCardSide" Content="Front" IsChecked="True" Margin="5" Checked="rbCardFront_Checked"/>
+                            <RadioButton Name="rbCardBack" GroupName="rbCardSide" Content="Back" Margin="5" Checked="rbCardBack_Checked"/>
+                        </StackPanel>
+                        <ToolBarTray x:Name="tbtFontStyle" DockPanel.Dock="Top" IsEnabled="False" IsLocked="True" OverridesDefaultStyle="True">
+                            <ToolBar Band="0">
+                                <ComboBox Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}" x:Name="cboFontFamily" Width="150" Margin="5" ToolTip="Font" SelectionChanged="cboFontFamily_SelectionChanged">
+                                    <ComboBox.ItemsSource>
+                                        <CompositeCollection>
+                                            <ComboBoxItem IsEnabled="False" Foreground="Black">Select Item</ComboBoxItem>
+                                            <CollectionContainer Collection="{Binding Source={x:Static Fonts.SystemFontFamilies}}" />
+                                        </CompositeCollection>
+                                    </ComboBox.ItemsSource>
+                                </ComboBox>
+
+                                <ComboBox Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}" x:Name="cboFontSize" Width="50" Margin="5" IsEditable="True" ToolTip="Font Size" SelectionChanged="cboFontSize_SelectionChanged" PreviewTextInput="cboFontSize_PreviewTextInput"/>
+                                <Separator Margin="5"/>
+                                <ToggleButton x:Name="toggleLeft" Padding="5" ToolTip="Align Left" Checked="toggleLeft_Checked">
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="pack://application:,,,/Views/Media/alignleft.png"/>
+                                </ToggleButton>
+                                <ToggleButton x:Name="toggleCenter" Padding="5" ToolTip="Align Center" Checked="toggleCenter_Checked">
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="pack://application:,,,/Views/Media/aligncenter.png"/>
+                                </ToggleButton>
+                                <ToggleButton x:Name="toggleRight" Padding="5" ToolTip="Align Right" Checked="toggleRight_Checked">
+                                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="pack://application:,,,/Views/Media/alignright.png"/>
+                                </ToggleButton>
+                                <Separator Margin="5"/>
+                                <Button x:Name="btnDeleteField" Padding="5" ToolTip="Delete Selected Field" Click="btnDeleteField_Click">
+                                    <Image Source="pack://application:,,,/Views/Media/delete.png"></Image>
+                                </Button>
+                            </ToolBar>
+                            <ToolBar Band="1">
+                                <!-- Resources to manage the Popup Button -->
+                                <ToolBar.Resources>
+                                    <Style TargetType="{x:Type Popup}">
+                                        <Setter Property="StaysOpen" Value="False" />
+                                        <EventSetter Event="Button.Click" Handler="popup_Click" />
+                                    </Style>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="Background" Value="{StaticResource {x:Static SystemColors.MenuBrushKey}}" />
+                                        <Setter Property="BorderThickness" Value="1" />
+                                        <Setter Property="Padding" Value="2" />
+                                    </Style>
+                                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                                        <Setter Property="HorizontalAlignment"        Value="Stretch" />
+                                        <Setter Property="HorizontalContentAlignment" Value="Left" />
+                                    </Style>
+                                </ToolBar.Resources>
+
+                                <ToggleButton x:Name="toggleBold" Content="B" FontFamily="Times New Roman" FontWeight="Bold" Padding="10,5" ToolTip="Bold" Checked="toggleBold_Checked" Unchecked="toggleBold_Unchecked"/>
+                                <ToggleButton x:Name="toggleItalic" Content="I" FontFamily="Times New Roman" FontStyle="Italic" Padding="10,5" ToolTip="Italic" Checked="toggleItalic_Checked" Unchecked="toggleItalic_Unchecked"/>
+                                <ToggleButton x:Name="toggleUnderline" Padding="10,5" FontFamily="Times New Roman" ToolTip="Underline" Checked="toggleUnderline_Checked" Unchecked="toggleUnderline_Unchecked">
+                                    <TextBlock>
+                                    <Underline>U</Underline>
+                                    </TextBlock>
+                                </ToggleButton>
+                                <Separator Margin="5"/>
+                                <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="pack://application:,,,/Views/Media/fontcolor.png"/>
+                                <xctk:ColorPicker x:Name="cpFont" Margin="5" ToolTip="Font Color" SelectedColor="Black" Width="40" SelectedColorChanged="cpFont_SelectedColorChanged"></xctk:ColorPicker>
+                                <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="pack://application:,,,/Views/Media/highlightcolor.png"/>
+                                <xctk:ColorPicker x:Name="cpTextBG" Margin="5" ToolTip="Text Highlight Color" SelectedColor="White" Width="40" SelectedColorChanged="cpTextBG_SelectedColorChanged"></xctk:ColorPicker>
+                                <Separator Margin="5"/>
+                                <ToggleButton x:Name="toggleCellAlign" Padding="5" ToolTip="Align To Card" Click="toggleCellAlign_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="pack://application:,,,/Views/Media/cellaligntopleft.png"/>
+                                        <TextBlock VerticalAlignment="Center" Margin="5,0,0,0">Position</TextBlock>
+                                    </StackPanel>
+                                </ToggleButton>
+                                <Popup x:Name="popupCellAlign" PlacementTarget="{Binding ElementName=toggleCellAlign}">
+                                    <Border>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Button x:Name="btnCellAlignTopLeft" Padding="5" ToolTip="Align Top Left" Grid.Row="0" Grid.Column="0" Tag="TL" Click="cellAlign_Click">
+                                                <Image Source="pack://application:,,,/Views/Media/cellaligntopleft.png"></Image>
+                                            </Button>
+                                            <Button x:Name="btnCellAlignTopCenter" Padding="5" ToolTip="Align Top Center" Grid.Row="0" Grid.Column="1" Tag="TC" Click="cellAlign_Click">
+                                                <Image Source="pack://application:,,,/Views/Media/cellaligntopcentered.png"></Image>
+                                            </Button>
+                                            <Button x:Name="btnCellAlignTopRight" Padding="5" ToolTip="Align Top Right" Grid.Row="0" Grid.Column="2" Tag="TR" Click="cellAlign_Click">
+                                                <Image Source="pack://application:,,,/Views/Media/cellaligntopright.png"></Image>
+                                            </Button>
+                                            <Button x:Name="btnCellAlignMiddleLeft" Padding="5" ToolTip="Align Middle Left" Grid.Row="1" Grid.Column="0" Tag="ML" Click="cellAlign_Click">
+                                                <Image Source="pack://application:,,,/Views/Media/cellalignmiddleleft.png"></Image>
+                                            </Button>
+                                            <Button x:Name="btnCellAlignMiddleCenter" Padding="5" ToolTip="Align Middle Center" Grid.Row="1" Grid.Column="1" Tag="MC" Click="cellAlign_Click">
+                                                <Image Source="pack://application:,,,/Views/Media/cellalignmiddlecentered.png"></Image>
+                                            </Button>
+                                            <Button x:Name="btnCellAlignMiddleRight" Padding="5" ToolTip="Align Middle Right" Grid.Row="1" Grid.Column="2" Tag="MR" Click="cellAlign_Click">
+                                                <Image Source="pack://application:,,,/Views/Media/cellalignmiddleright.png"></Image>
+                                            </Button>
+                                            <Button x:Name="btnCellAlignBottomLeft" Padding="5" ToolTip="Align Bottom Left" Grid.Row="2" Grid.Column="0" Tag="BL" Click="cellAlign_Click">
+                                                <Image Source="pack://application:,,,/Views/Media/cellalignbottomleft.png"></Image>
+                                            </Button>
+                                            <Button x:Name="btnCellAlignBottomCenter" Padding="5" ToolTip="Align Bottom Center" Grid.Row="2" Grid.Column="1" Tag="BC" Click="cellAlign_Click">
+                                                <Image Source="pack://application:,,,/Views/Media/cellalignbottomcentered.png"></Image>
+                                            </Button>
+                                            <Button x:Name="btnCellAlignBottomRight" Padding="5" ToolTip="Align Bottom Right" Grid.Row="2" Grid.Column="2" Tag="BR" Click="cellAlign_Click">
+                                                <Image Source="pack://application:,,,/Views/Media/cellalignbottomright.png"></Image>
+                                            </Button>
+                                        </Grid>
+                                    </Border>
+                                </Popup>
+                                <Separator Margin="5"/>
+
+                                <Button x:Name="btnBringToFront" ToolTip="Bring To Front" Click="btnBringToFront_Click" Margin="2,0,2,0">
+                                    <Image Source="pack://application:,,,/Views/Media/zordertop.png"></Image>
+                                </Button>
+
+
+                            </ToolBar>
+                        </ToolBarTray>
+
+                        <ScrollViewer Height="230" Width="355" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                            <StackPanel Orientation="Vertical">
+                                <Border x:Name="FrontCanvasBorder" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="2" Width="352" Height="222" Grid.Row="1" Grid.Column="2" Margin="5" Visibility="Visible">
+                                    <Canvas x:Name="cnvCardFront" HorizontalAlignment="Center" DataContext="{Binding FrontCanvas}" VerticalAlignment="Center" Width="350"  Height="220" Background="White" AllowDrop="True" Visibility="Visible"/>
+                                </Border>
+
+                                <Border x:Name="BackCanvasBorder" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="2" Width="352" Height="222" Grid.Row="1" Grid.Column="2" Margin="5" Visibility="Collapsed">
+                                    <Canvas x:Name="cnvCardBack" HorizontalAlignment="Center" DataContext="{Binding BackCanvas}" VerticalAlignment="Center" Width="350"  Height="220" Background="White" AllowDrop="True" Visibility="Collapsed"/>
+                                </Border>
+                            </StackPanel>
+                           
+                        </ScrollViewer>
+                       
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25" Visibility="Collapsed">
+                           
+                            <Button x:Name="btnPrint" Content="Print Card" Width="100" Margin="5" IsEnabled="False" Click="btnTestPrint_Click"/>
+                            <Button x:Name="btnExit" Content="Exit" Width="100" Margin="5" Click="btnExit_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>

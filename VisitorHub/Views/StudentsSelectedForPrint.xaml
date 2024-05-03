@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="SwipeDesktop.Views.StudentsSelectedForPrint"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SwipeDesktop.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="470" d:DesignWidth="700">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/StandardStyles.xaml" />
+                <ResourceDictionary Source="/Resources/Themes/Windows8/System.Windows.xaml"/>
+                <ResourceDictionary Source="/Resources/Themes/Windows8/Telerik.Windows.Controls.xaml"/>
+                <ResourceDictionary Source="/Resources/Themes/Windows8/Telerik.Windows.Controls.ImageEditor.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="BatchHoverStyle" TargetType="ListViewItem">
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ListViewItem">
+
+                            <Border x:Name="border" Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal" />
+                                        <VisualState x:Name="Disabled" />
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ColorAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                              Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                    <EasingColorKeyFrame KeyTime="0" Value="#41B1E1" />
+                                                </ColorAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="SelectionStates">
+                                        <VisualState x:Name="Unselected" />
+                                        <VisualState x:Name="Selected">
+                                            <Storyboard>
+                                                <ColorAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                              Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                    <EasingColorKeyFrame KeyTime="0" Value="#41B1E1" />
+                                                </ColorAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Focused">
+                                            <Storyboard>
+                                                <ColorAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                              Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                    <EasingColorKeyFrame KeyTime="0" Value="#41B1E1" />
+                                                </ColorAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <ContentPresenter/>
+                            </Border>
+
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+
+
+    </UserControl.Resources>
+
+    <Grid x:Name="ScanStationMainGrid" ZIndex="0"  Background="white">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+          
+        </Grid.ColumnDefinitions>
+        <!--start left grid-->
+        <ListView MaxHeight="470" Height="470" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.Column="0" x:Name="SelectedStudentsList" ItemsSource="{Binding BatchItems}" Background="Transparent" BorderThickness="0" BorderBrush="#E3e3e3" ItemContainerStyle="{StaticResource BatchHoverStyle}" Padding="5" HorizontalAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel VerticalAlignment="Center" Margin="5 5 5 5">
+                        <CheckBox x:Name="BatchItem" IsChecked="{Binding IsChecked}" >
+                            <TextBlock Text="{Binding Item}" Style="{StaticResource SmallListItemStyle}"></TextBlock>
+                        </CheckBox>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+</UserControl>

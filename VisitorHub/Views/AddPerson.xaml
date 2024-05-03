@@ -1,0 +1,130 @@
+﻿<UserControl x:Class="SwipeDesktop.Views.AddPerson"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:v="clr-namespace:SwipeDesktop.Views"
+             xmlns:m="clr-namespace:SwipeDesktop.Models"
+             xmlns:validations="clr-namespace:SwipeDesktop.Validations"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="650">
+    <UserControl.Resources>
+        
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/StandardStyles.xaml" />
+
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+
+        </ResourceDictionary>
+
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical">
+        <StackPanel.Resources>
+            <DataTemplate DataType="{x:Type ValidationError}">
+                <TextBlock 
+                  FontStyle="Italic"
+                  Foreground="Red"
+                  HorizontalAlignment="Right"
+                  Margin="4"
+                  Text="{Binding Path=ErrorContent}" 
+                  />
+            </DataTemplate>
+        </StackPanel.Resources>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <GroupBox  Grid.Column="0" Style="{StaticResource GroupBoxStyle}">
+                <GroupBox.Header >
+                    Basic Information
+                </GroupBox.Header>
+                <StackPanel Width="auto" Margin="5,5" Orientation="Vertical" Background="Transparent" Height="auto">
+
+                    <StackPanel Orientation="Vertical">
+                        <Label  Style="{StaticResource SmallBlueLabelStyle}">Person Type</Label>
+                        <ComboBox x:Name="PersonType" Height="30" Margin="0 2" IsReadOnly="True" ItemsSource="{Binding PeopleTypes}" SelectedItem="{Binding PersonType}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding}"  Style="{StaticResource XSmallListItemStyle}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" Height="60">
+                        <Label  Style="{StaticResource SmallBlueLabelStyle}">ID Number *</Label>
+                        <TextBox x:Name="IdNumber" Padding="0 2" Style="{StaticResource SmallTextEntryStyle}" IsReadOnly="False" LostFocus="TextBox_OnLostFocus"  Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                            <TextBox.Text>
+                                <Binding Path="PersonToAdd.IdNumber" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validations:IdNumberValidator Max="15"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" Height="60">
+                        <Label  Style="{StaticResource SmallBlueLabelStyle}">First Name *</Label>
+                        <TextBox x:Name="FirstName" Padding="0 2" Style="{StaticResource SmallTextEntryStyle}" IsReadOnly="False" LostFocus="TextBox_OnLostFocus"  Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                            <TextBox.Text>
+                                <Binding Path="PersonToAdd.FirstName" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validations:FieldValidator Field="First Name"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" Height="60">
+                        <Label  Style="{StaticResource SmallBlueLabelStyle}">Last Name *</Label>
+                        <TextBox x:Name="LastName" Padding="0 2" Style="{StaticResource SmallTextEntryStyle}" IsReadOnly="False" LostFocus="TextBox_OnLostFocus"  Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                            <TextBox.Text>
+                                <Binding Path="PersonToAdd.LastName" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validations:FieldValidator Field="Last Name"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" Height="60">
+                        <Label  Style="{StaticResource SmallBlueLabelStyle}">Date of Birth</Label>
+                        <TextBox x:Name="BirthDate" Padding="0 2" Style="{StaticResource SmallTextEntryStyle}" IsReadOnly="False" LostFocus="TextBox_OnLostFocus"  Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                            <TextBox.Text>
+                                <Binding Path="PersonToAdd.DateOfBirth" StringFormat="MM/dd/yyyy" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validations:BirthDateValidator/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </StackPanel>
+
+                </StackPanel>
+            </GroupBox>
+            <ContentControl Grid.Column="1" Content="{Binding AdditionalDetails}" Background="Transparent" Focusable="False"/>
+        </Grid>
+        <Label Content="{Binding DisplayErrors}" Style="{StaticResource SmallErrorLabelStyle}"/>
+        <!--<ContentPresenter 
+          Content="{Binding 
+            ElementName=symbolTxt,
+            Path=(Validation.Errors).CurrentItem}" 
+          />-->
+    </StackPanel>
+</UserControl>

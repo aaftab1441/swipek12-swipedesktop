@@ -1,0 +1,1 @@
+sqlcmd -S localhost -i "UnInstall-Db.sql"

@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="SwipeDesktop.Views.StudentAlternateId"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="450">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/StandardStyles.xaml" />
+                <ResourceDictionary Source="/Resources/Strings.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+
+    </UserControl.Resources>
+    <Grid Background="white" Height="210" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Height="160" VerticalAlignment="Top" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="160"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Margin="10">
+                <Border BorderThickness="1" BorderBrush="White" Background="White">
+
+                    <Image Source="{Binding Student.Image}" Stretch="Fill" MinHeight="150" MinWidth="150" MaxHeight="150" MaxWidth="150" RenderOptions.BitmapScalingMode="HighQuality" VerticalAlignment="bottom"/>
+
+                </Border>
+            </StackPanel>
+            <Grid Grid.Column="1" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+               
+                <TextBlock Grid.Row="0" Style="{StaticResource PassTextBlockLarge}" Height="160" VerticalAlignment="Top" TextWrapping="Wrap" Text="{Binding Student.DisplayName, StringFormat={StaticResource AlternateIdPrompt}}">
+
+                </TextBlock>
+
+                <TextBlock x:Name="NewAltIdTextblock" Grid.Row="1" Style="{StaticResource PassTextBlockLarge}" Visibility="Hidden"  Height="50" VerticalAlignment="Top" Text="{Binding NewAltId, StringFormat={StaticResource NewIdString}}">
+
+                </TextBlock>
+            </Grid>
+          
+          
+        </Grid>
+        <Border Margin="5 0"  Grid.Row="1" >
+            <TextBox Name="AlternateIdTextbox" Margin="3" Style="{StaticResource TextEntryStyle}" Visibility="Visible" Text="{Binding NewAltId}" Padding="0 3"></TextBox>
+        </Border>
+      
+    </Grid>
+   
+</UserControl>

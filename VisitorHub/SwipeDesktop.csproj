@@ -1,0 +1,1518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <PublishUrl>C:\_deploy\swipe\desktop\7_19_2017\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>https://packages.swipek12.com/Desktop/</UpdateUrl>
+    <PublisherName>SwipeK12</PublisherName>
+    <WebPage>publish.htm</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{013B1578-2EC9-4B34-981D-0820AB0BE3A5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SwipeDesktop</RootNamespace>
+    <AssemblyName>SwipeDesktop</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SwipeDesktop.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>50A36148F6DEC07F7449B555EEC311466E7CBF9D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SwipeDesktop_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Akavache">
+      <HintPath>..\packages\akavache.core.4.1.0\lib\net45\Akavache.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mef">
+      <HintPath>..\packages\Autofac.Mef.3.0.3\lib\net40\Autofac.Integration.Mef.dll</HintPath>
+    </Reference>
+    <Reference Include="Commands">
+      <HintPath>..\packages\Commands.dll</HintPath>
+    </Reference>
+    <Reference Include="Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Domain">
+      <HintPath>..\packages\Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="EQATEC.Analytics.Monitor, Version=3.2.1.0, Culture=neutral, PublicKeyToken=213c7c68adb58a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\EQATEC.Analytics.Monitor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FamilyWatchdogProxy">
+      <HintPath>..\packages\FamilyWatchdogProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.WPF">
+      <HintPath>..\packages\FontAwesome.WPF.4.3.0.2\lib\FontAwesome.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Gma.QrCodeNet.Encoding, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QrCode.Net.0.4.0.0\lib\net45\Gma.QrCodeNet.Encoding.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="InputPanelConfigurationLib">
+      <HintPath>..\WindowsKits8.0-dll\InputPanelConfigurationLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="LogentriesCore">
+      <HintPath>..\packages\logentries.core.2.6.10\lib\net40\LogentriesCore.dll</HintPath>
+    </Reference>
+    <Reference Include="LogentriesLog4net">
+      <HintPath>..\packages\logentries.log4net.2.6.6\lib\net40\LogentriesLog4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\packages\MahApps.Metro.1.0.0.0\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=1.4.1.485, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.1.4.1.485\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.1.0\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="NetScanW, Version=3.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\packages\Acuant\2_12_17\NetScanW.dll</HintPath>
+    </Reference>
+    <Reference Include="NetScanWex, Version=5.0.0.1, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\packages\Acuant\2_12_17\NetScanWex.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ookii.Dialogs.Wpf">
+      <HintPath>..\packages\Ookii.Dialogs.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="ReactiveDialog">
+      <HintPath>..\packages\ReactiveDialog.1.3.0\lib\net45\ReactiveDialog.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveUI, Version=6.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\reactiveui-core.6.5.2\lib\Net45\ReactiveUI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ReactiveUI.Events">
+      <HintPath>..\packages\reactiveui-events.6.3.1\lib\net45\ReactiveUI.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceLayer">
+      <HintPath>..\packages\ServiceLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceLayer.Client">
+      <HintPath>..\packages\ServiceLayer.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceLayer.Common">
+      <HintPath>..\packages\ServiceLayer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack">
+      <HintPath>..\packages\ServiceStack.3.9.71\lib\net35\ServiceStack.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Common.3.9.71\lib\net35\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Common.3.9.71\lib\net35\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.OrmLite.SqlServer.3.9.71\lib\net35\ServiceStack.OrmLite.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite.SqlServer, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.OrmLite.SqlServer.3.9.71\lib\net35\ServiceStack.OrmLite.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Redis.3.9.71\lib\net35\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.ServiceInterface">
+      <HintPath>..\packages\ServiceStack.3.9.71\lib\net35\ServiceStack.ServiceInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Text.3.9.71\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.Data">
+      <HintPath>..\packages\Simple.Data.Core.0.19.0.0\lib\net40\Simple.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.Data.Ado, Version=0.19.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Simple.Data.Ado.0.19.0.0\lib\net40\Simple.Data.Ado.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.Data.SqlServer">
+      <HintPath>..\packages\Simple.Data.SqlServer.0.19.0.0\lib\net40\Simple.Data.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Splat.1.4.0\lib\Net45\Splat.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\packages\Rx-Linq.2.2.5\lib\net45\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading">
+      <HintPath>..\packages\Rx-XAML.2.2.5\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.0.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Documents.SpreadsheetStreaming, Version=2016.2.606.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Pivot.Core, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Pivot.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Pivot.DataProviders.Adomd, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Pivot.DataProviders.Adomd.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Pivot.DataProviders.Queryable, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Pivot.DataProviders.Queryable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Pivot.DataProviders.Xmla, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Pivot.DataProviders.Xmla.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Analytics, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Analytics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Cloud, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Cloud.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Cloud.Controls, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Cloud.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Chart, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.Chart.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Charting, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.Charting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.DataServices, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.DataServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.DataServices50, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.DataServices50.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.DataServices60, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.DataServices60.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.DataVisualization, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Diagrams, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.Diagrams.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Diagrams.Extensions, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.Diagrams.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Docking, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.Docking.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.EntityFramework, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.EntityFramework60, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.EntityFramework60.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Expressions, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.Expressions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.FixedDocumentViewers, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.FixedDocumentViewers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.FixedDocumentViewersUI, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.FixedDocumentViewersUI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GanttView, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.GanttView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.GridView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView.Export, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.GridView.Export.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.ImageEditor, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.ImageEditor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.Input.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.Navigation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Pivot, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.Pivot.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.PivotFieldList, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.PivotFieldList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonView, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.RibbonView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RichTextBoxUI, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.RichTextBoxUI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.ScheduleView, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.ScheduleView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Spreadsheet, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Controls.Spreadsheet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Diagrams.Core, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Diagrams.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Core, Version=2016.2.606.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Fixed, Version=2016.2.606.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.Fixed.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Flow, Version=2016.2.606.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.Flow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Flow.FormatProviders.Pdf, Version=2016.2.606.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.Flow.FormatProviders.Pdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Html, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.FormatProviders.Html.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.MsRichTextBoxXaml, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.FormatProviders.MsRichTextBoxXaml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.OpenXml, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.FormatProviders.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Pdf, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.FormatProviders.Pdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Rtf, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.FormatProviders.Rtf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Xaml, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.FormatProviders.Xaml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Proofing, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.Proofing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Proofing.DataGrid, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.Proofing.DataGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Proofing.Dictionaries.En-US, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.Proofing.Dictionaries.En-US.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Proofing.RadGridView, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.Proofing.RadGridView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet, Version=2016.2.606.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml, Version=2016.2.606.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf, Version=2016.2.606.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.PersistenceFramework, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.PersistenceFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Scheduling.Core, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Scheduling.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip, Version=2016.2.606.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip.Extensions, Version=2016.2.606.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\packages\UI.for.Wpf.45.Xaml.2016.2.613\lib\net45\Telerik.Windows.Zip.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="WindowsBase">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WindowsInput, Version=1.0.4.0, Culture=neutral, PublicKeyToken=9b287f7dc5073cad, processorArchitecture=MSIL">
+      <HintPath>..\packages\InputSimulator.1.0.4.0\lib\net20\WindowsInput.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFMediaKit, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFMediaKit.2.2.0\lib\WPFMediaKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid">
+      <HintPath>..\packages\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=1.9.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.5\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.5\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\DataReplicator.cs" />
+    <Compile Include="Api\RemoteStorage.cs" />
+    <Compile Include="Common\CanvasHelper.cs" />
+    <Compile Include="Common\CheckedItem.cs" />
+    <Compile Include="Common\ControlsExtension.cs" />
+    <Compile Include="Common\CustomPopup.cs" />
+    <Compile Include="Common\GenericEvent.cs" />
+    <Compile Include="Common\SyncIdCards.cs" />
+    <Compile Include="Common\IdCardDeleted.cs" />
+    <Compile Include="Common\RegistrySettings.cs" />
+    <Compile Include="Common\SyncInterval.cs" />
+    <Compile Include="Common\Enums.cs" />
+    <Compile Include="Common\USBDevice.cs" />
+    <Compile Include="Controls\NoInheritContainer.cs" />
+    <Compile Include="Controls\RefreshHelper.cs" />
+    <Compile Include="Controls\TouchTextBox.cs" />
+    <Compile Include="Controls\ZoomBorder.cs" />
+    <Compile Include="Converters\AlertColorConverter.cs" />
+    <Compile Include="Converters\LocationKioskVisibilityConverters.cs" />
+    <Compile Include="Converters\StudentKioskVisibilityConverters.cs" />
+    <Compile Include="Converters\ModeVisibilityConverters.cs" />
+    <Compile Include="DeviceLibrary\ComPorts.cs" />
+    <Compile Include="DeviceLibrary\Port.cs" />
+    <Compile Include="IdCardUtils\CanvasUtils.cs" />
+    <Compile Include="IdCardUtils\CreateCard.xaml.cs">
+      <DependentUpon>CreateCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IdCardUtils\InputDialog.xaml.cs">
+      <DependentUpon>InputDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IdCardUtils\OpenCard.xaml.cs">
+      <DependentUpon>OpenCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IdCardUtils\Paginator.cs" />
+    <Compile Include="IdCardUtils\ResizingAdorner.cs" />
+    <Compile Include="IdCardUtils\Serialisation.cs" />
+    <Compile Include="IdCardUtils\SwipeCard.cs">
+      <DependentUpon>SwipeCard.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="IdCardUtils\SwipeCard.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SwipeCard.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="IdCardUtils\SwipeCardBLL.cs" />
+    <Compile Include="IdCardUtils\SwipeUtils.cs" />
+    <Compile Include="Interop\USBHelper.cs" />
+    <Compile Include="Models\AlertPrinted.cs" />
+    <Compile Include="Models\CardItem.cs" />
+    <Compile Include="Models\CardTemplate.cs" />
+    <Compile Include="Models\Dismissal.cs" />
+    <Compile Include="Models\Consequence.cs" />
+    <Compile Include="Models\IdCardPrinted.cs" />
+    <Compile Include="Models\Fine.cs" />
+    <Compile Include="Models\IdCard.cs" />
+    <Compile Include="Models\LocationScan.cs" />
+    <Compile Include="Models\StudentStartTime.cs" />
+    <Compile Include="Models\LunchTimeTable.cs" />
+    <Compile Include="Models\Receipt.cs" />
+    <Compile Include="Models\SchoolStartTime.cs" />
+    <Compile Include="Models\SpeedPassModel.cs" />
+    <Compile Include="Models\StaffRecord.cs" />
+    <Compile Include="Models\TeacherDetails.cs" />
+    <Compile Include="Models\StaffDetails.cs" />
+    <Compile Include="Models\StudentDetails.cs" />
+    <Compile Include="Models\TardyStat.cs" />
+    <Compile Include="Models\VisitExit.cs" />
+    <Compile Include="SetPermissionsAction.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SetPermissionsAction.Designer.cs">
+      <DependentUpon>SetPermissionsAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Content Include="App_Data\2016 MDF\SwipeDesktop_log.ldf">
+      <DependentUpon>SwipeDesktop.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SwipeDesktop.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\SwipeDesktop_log.ldf">
+      <DependentUpon>SwipeDesktop.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="license-scan.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\birthday.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\license-scan.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\license-scan.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\license-scan-old.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\482907157.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\nullpersonorange.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\welcome-logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Picture1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sql\group-scanning.sql">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Sql\add servebydays.sql">
+      <SubType>Designer</SubType>
+    </Content>
+    <Compile Include="SocketServer.cs" />
+    <Compile Include="Storage\AlertPrintedStorage.cs" />
+    <Compile Include="Storage\DismissalStorage.cs" />
+    <Compile Include="Storage\EventStorage.cs" />
+    <Compile Include="Storage\VisitExitStorage.cs" />
+    <Compile Include="Storage\NewIdCardStorage.cs" />
+    <Compile Include="Storage\FineStorage.cs" />
+    <Compile Include="Storage\InOutStorage.cs" />
+    <Compile Include="Storage\LocalStorage.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\ModalAdorner.cs" />
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Common\CheckProcessRunning.cs" />
+    <Compile Include="Common\DataSource.cs" />
+    <Compile Include="Common\Dispatcher.cs" />
+    <Compile Include="Common\IniHelper.cs" />
+    <Compile Include="Common\HideDialog.cs" />
+    <Compile Include="Common\IReturnData.cs" />
+    <Compile Include="Common\Notifications.cs" />
+    <Compile Include="Common\Extensions.cs" />
+    <Compile Include="Common\WatchdogHelper.cs" />
+    <Compile Include="Config\Bootstrapper.cs" />
+    <Compile Include="Config\CommandDispatcherModule.cs" />
+    <Compile Include="Config\StorageConfig.cs" />
+    <Compile Include="Config\ViewsWireup.cs" />
+    <Compile Include="Config\ViewModelsWireup.cs" />
+    <Compile Include="Converters\AttendanceColorConverter.cs" />
+    <Compile Include="Cssn\Constants.cs" />
+    <Compile Include="Cssn\ScanShellHelper.cs" />
+    <Compile Include="InkInputHelper.cs" />
+    <Compile Include="Interfaces\IViewModel.cs" />
+    <Compile Include="Interop\USBQueue.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modal\DialogWindowConstants.cs" />
+    <Compile Include="Modal\IDialogMetadata.cs" />
+    <Compile Include="Modal\IModalViewModel.cs" />
+    <Compile Include="Modal\IPopupViewModelLocator.cs" />
+    <Compile Include="Modal\PopupViewModelLocator.cs" />
+    <Compile Include="Models\Period.cs" />
+    <Compile Include="Models\DemographicModel.cs" />
+    <Compile Include="Models\EntityBase.cs" />
+    <Compile Include="Models\RedisObject.cs" />
+    <Compile Include="Models\ScanData.cs" />
+    <Compile Include="Models\ScanModel.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Storage\DetentionStorage.cs" />
+    <Compile Include="Storage\StaffScanStorage.cs" />
+    <Compile Include="Storage\ScanStorage.cs" />
+    <Compile Include="Camera\Controls\Capture.xaml.cs">
+      <DependentUpon>Capture.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Camera\Controls\WebcamPlayer\CapDevice.cs" />
+    <Compile Include="Camera\Controls\WebcamPlayer\CapGrabber.cs" />
+    <Compile Include="Camera\Controls\WebcamPlayer\CapHelper.cs" />
+    <Compile Include="Camera\Controls\WebcamPlayer\CapInterfaces.cs" />
+    <Compile Include="Camera\Controls\WebcamPlayer\CapPlayer.cs" />
+    <Compile Include="Camera\Controls\WebcamPlayer\CapStructures.cs" />
+    <Compile Include="Camera\Controls\WebcamPlayer\FilterInfo.cs" />
+    <Compile Include="Camera\Converters\ThreeFourthConverter.cs" />
+    <Compile Include="Camera\Input\CaptureImageCommands.cs" />
+    <Compile Include="Validations\FormBase.cs" />
+    <Compile Include="Validations\IdNumberRule.cs" />
+    <Compile Include="Validations\BirthDateRule.cs" />
+    <Compile Include="Validations\FieldRule.cs" />
+    <Compile Include="Validations\ValidatorExtensions.cs" />
+    <Compile Include="ViewModels\AddPersonViewModel.cs" />
+    <Compile Include="ViewModels\StaffExitViewModel.cs" />
+    <Compile Include="ViewModels\StaffEnterViewModel.cs" />
+    <Compile Include="ViewModels\SuspendViewModel.cs" />
+    <Compile Include="ViewModels\StudentEnterViewModel.cs" />
+    <Compile Include="ViewModels\VisitorEnterViewModel.cs" />
+    <Compile Include="ViewModels\StudentExitViewModel.cs" />
+    <Compile Include="ViewModels\VisitorExitViewModel.cs" />
+    <Compile Include="ViewModels\SelectedForPrintViewModel.cs" />
+    <Compile Include="ViewModels\BatchPrintViewModel.cs" />
+    <Compile Include="ViewModels\IdCardDesignerViewModel.cs" />
+    <Compile Include="ViewModels\LaunchScreenViewModel.cs" />
+    <Compile Include="ViewModels\NullViewModel.cs" />
+    <Compile Include="ViewModels\PopupViewModel.cs" />
+    <Compile Include="Models\VisitLocation.cs" />
+    <Compile Include="Models\OffenderSearchResult.cs" />
+    <Compile Include="Models\PrintModel.cs" />
+    <Compile Include="Models\AttendanceCode.cs" />
+    <Compile Include="Models\ScanMode.cs" />
+    <Compile Include="ViewModels\StaffScan.cs" />
+    <Compile Include="ViewModels\ScanLocation.cs" />
+    <Compile Include="ViewModels\StationAlert.cs" />
+    <Compile Include="ViewModels\StudentAlternateIdViewModel.cs" />
+    <Compile Include="ViewModels\StaffCardViewModel.cs" />
+    <Compile Include="ViewModels\StudentCardViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="Models\PersonModel.cs" />
+    <Compile Include="Models\StudentModel.cs" />
+    <Compile Include="Models\VisitModel.cs" />
+    <Compile Include="ScanUtility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Storage\IStorage.cs" />
+    <Compile Include="Storage\RedisStorage.cs" />
+    <Compile Include="Storage\VisitStorage.cs" />
+    <Compile Include="ViewModels\VisitLocationViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\Scan.cs" />
+    <Compile Include="ViewModels\ScanStationViewModel.cs" />
+    <Compile Include="ViewModels\VisitorScanViewModel.cs" />
+    <Compile Include="ViewModels\ProcessingViewModel.cs" />
+    <Compile Include="ViewModels\WelcomeViewModel.cs" />
+    <Compile Include="Views\AddPerson.xaml.cs">
+      <DependentUpon>AddPerson.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Keypad.xaml.cs">
+      <DependentUpon>Keypad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffExit.xaml.cs">
+      <DependentUpon>StaffExit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffEnter.xaml.cs">
+      <DependentUpon>StaffEnter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuspendEntry.xaml.cs">
+      <DependentUpon>SuspendEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentEnter.xaml.cs">
+      <DependentUpon>StudentEnter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisitorEnter.xaml.cs">
+      <DependentUpon>VisitorEnter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestPrint.xaml.cs">
+      <DependentUpon>TestPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShortAlert.xaml.cs">
+      <DependentUpon>ShortAlert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentsSelectedForPrint.xaml.cs">
+      <DependentUpon>StudentsSelectedForPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BatchPrint.xaml.cs">
+      <DependentUpon>BatchPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ImageEditor\CustomSettings.xaml.cs">
+      <DependentUpon>CustomSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ImageEditor\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NullView.xaml.cs">
+      <DependentUpon>NullView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Receipt.xaml.cs">
+      <DependentUpon>Receipt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Alert.xaml.cs">
+      <DependentUpon>Alert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IdCardDesigner.xaml.cs">
+      <DependentUpon>IdCardDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LaunchWindow.xaml.cs">
+      <DependentUpon>LaunchWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Locations.xaml.cs">
+      <DependentUpon>Locations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ScanStation.xaml.cs">
+      <DependentUpon>ScanStation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shell.xaml.cs">
+      <DependentUpon>Shell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentAlternateId.xaml.cs">
+      <DependentUpon>StudentAlternateId.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffCard.xaml.cs">
+      <DependentUpon>StaffCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentCardFine.xaml.cs">
+      <DependentUpon>StudentCardFine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffDetails.xaml.cs">
+      <DependentUpon>StaffDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentDetails.xaml.cs">
+      <DependentUpon>StudentDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TardyPass.xaml.cs">
+      <DependentUpon>TardyPass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Test.xaml.cs">
+      <DependentUpon>Test.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentExit.xaml.cs">
+      <DependentUpon>StudentExit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisitorPass.xaml.cs">
+      <DependentUpon>VisitorPass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisitorExit.xaml.cs">
+      <DependentUpon>VisitorExit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisitorScan.xaml.cs">
+      <DependentUpon>VisitorScan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Processing.xaml.cs">
+      <DependentUpon>Processing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Welcome.xaml.cs">
+      <DependentUpon>Welcome.xaml</DependentUpon>
+    </Compile>
+    <Content Include="Sql\AuditTable.sql" />
+    <Content Include="Sql\MergeStudentStartTime.sql" />
+    <Content Include="Sql\MergeLunchTable.sql" />
+    <Content Include="Sql\SchoolStartTimes.sql" />
+    <Content Include="Sql\StudentStartTime_seq.sql" />
+    <Content Include="Sql\seq_LunchTimeTable.sql" />
+    <Content Include="Sql\SQLQuery1.sql" />
+    <Content Include="Sql\StudentStartTime.sql" />
+    <Content Include="Sql\StudentLunchTable.sql" />
+    <Content Include="Sql\StudentStartTime_Sync.sql" />
+    <Content Include="Sql\StudentLunchTable_Sync.sql" />
+    <Content Include="Sql\TardySwipeSync.sql" />
+    <Content Include="Sql\TardySwipe_SEQ.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App_Data\redis-benchmark.pdb" />
+    <None Include="App_Data\redis-check-aof.pdb" />
+    <None Include="App_Data\redis-check-dump.pdb" />
+    <None Include="App_Data\redis-cli.pdb" />
+    <None Include="App_Data\redis-server.pdb" />
+    <Content Include="App_Data\UnInstall-Db.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="App_Data\Install-Db.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App_Data\redis.conf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="App_Data\SetPermissions.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Assets\Images\CaptureImageNow.png" />
+    <Content Include="Fonts\FRE3OF9X.TTF">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Fonts\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fonts\IDAutomationHC39M Free Version.ttf" />
+    <None Include="IdCardUtils\SwipeCard.xsc">
+      <DependentUpon>SwipeCard.xsd</DependentUpon>
+    </None>
+    <None Include="IdCardUtils\SwipeCard.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>SwipeCard.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="IdCardUtils\SwipeCard.xss">
+      <DependentUpon>SwipeCard.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Resources\Entypo.ttf" />
+    <None Include="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SwipeDesktop_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Cssn\IdDataErrors.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cssn\ScanLibErrors.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Camera\Controls\Resources\WebcamPlayer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Resources\Themes\Windows8\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Cloud.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.Chart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.Data.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.DataVisualization.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.Diagrams.Extensions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.Diagrams.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.Docking.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.Expressions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.FixedDocumentViewers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.FixedDocumentViewersUI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.GanttView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.GridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.ImageEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.Pivot.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.PivotFieldList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.RibbonView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.RichTextBoxUI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.ScheduleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.Spreadsheet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Documents.Proofing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Themes\Windows8\Telerik.Windows.Documents.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\Strings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\ScrollbarStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
+    <Page Include="Resources\Themes\Windows8Touch\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Cloud.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.Chart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.Data.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.DataVisualization.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.Diagrams.Extensions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.Diagrams.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.Docking.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.Expressions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.FixedDocumentViewers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.FixedDocumentViewersUI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.GanttView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.GridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.ImageEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.Pivot.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.PivotFieldList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.RibbonView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.RichTextBoxUI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.ScheduleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.Spreadsheet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Documents.Proofing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\Windows8Touch\Telerik.Windows.Documents.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\WebcamPlayer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="IdCardUtils\CreateCard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="IdCardUtils\InputDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="IdCardUtils\OpenCard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Camera\Controls\Capture.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AddPerson.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Keypad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StaffExit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StaffEnter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SuspendEntry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StudentEnter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VisitorEnter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TestPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ShortAlert.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StudentsSelectedForPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BatchPrint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ImageEditor\CustomSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ImageEditor\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NullView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Receipt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Alert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\IdCardDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LaunchWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Locations.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ScanStation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Settings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Shell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StudentAlternateId.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StaffCard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StudentCardFine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StaffDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StudentDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TardyPass.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StudentExit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VisitorPass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VisitorExit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VisitorScan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Processing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Welcome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="Resources\StandardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Uninstall-Db.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\Install-Db.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\redis-benchmark.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\redis-check-aof.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\redis-check-dump.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\redis-cli.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\redis-server.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Views\Media\aligncenter.png" />
+    <Resource Include="Views\Media\alignjustify.png" />
+    <Resource Include="Views\Media\alignleft.png" />
+    <Resource Include="Views\Media\alignright.png" />
+    <Content Include="Resources\BadScan.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Views\Media\cellalignbottomcentered.png" />
+    <Resource Include="Views\Media\cellalignbottomleft.png" />
+    <Resource Include="Views\Media\cellalignbottomright.png" />
+    <Resource Include="Views\Media\cellalignmiddlecentered.png" />
+    <Resource Include="Views\Media\cellalignmiddleleft.png" />
+    <Resource Include="Views\Media\cellalignmiddleright.png" />
+    <Resource Include="Views\Media\cellaligntopcentered.png" />
+    <Resource Include="Views\Media\cellaligntopleft.png" />
+    <Resource Include="Views\Media\cellaligntopright.png" />
+    <Resource Include="Views\Media\delete.png" />
+    <Content Include="Resources\ding.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Views\Media\fontcolor.png" />
+    <Resource Include="Views\Media\fontsizedecrease.png" />
+    <Resource Include="Views\Media\fontsizeincrease.png" />
+    <Resource Include="Views\Media\highlightcolor.png" />
+    <Resource Include="Views\Media\image.png" />
+    <Resource Include="Views\Media\insertfile.png" />
+    <Resource Include="Resources\logo-small.png" />
+    <Content Include="Resources\No_image_available.svg" />
+    <Content Include="Resources\nullpersonblue.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\nullpersonorange.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Views\Media\open.png" />
+    <Resource Include="Views\Media\pageorientation.png" />
+    <Content Include="Resources\person.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Views\Media\print.png" />
+    <Resource Include="Views\Media\printpreview.png" />
+    <Resource Include="Views\Media\question.png" />
+    <Resource Include="Views\Media\save.png" />
+    <SplashScreen Include="Resources\Splashscreen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </SplashScreen>
+    <Content Include="Resources\swipe_logo.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\swipe_logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Views\Media\textflow.png" />
+    <Resource Include="Views\Media\zoom.png" />
+    <Resource Include="Views\Media\zoompageheight.png" />
+    <Resource Include="Views\Media\zoompagewidth.png" />
+    <Resource Include="Views\Media\zorderbottom.png" />
+    <Resource Include="Views\Media\zordertop.png" />
+    <Content Include="App_Data\donotremove.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\DarkGray.png" />
+    <Content Include="Assets\LightGray.png" />
+    <Content Include="Assets\Logo.scale-100.png" />
+    <Content Include="Assets\MediumGray.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\SmallLogo.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <None Include="Administrator Office.txt.disable">
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="locations.txt">
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nurse.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Entypo-license.txt" />
+    <Content Include="Resources\WindowsIcons-license.txt" />
+    <Content Include="App_Data\2016 MDF\SwipeDesktop.mdf" />
+    <Content Include="Sql\DataReplicator.sql" />
+    <None Include="Sql\dbo.InsertStaff.sql" />
+    <None Include="Sql\dbo.InsertStudent.sql" />
+    <Content Include="Sql\dbo.StudentTimeTable.sql" />
+    <Content Include="Sql\MergeTardySwipeSync.sql" />
+    <Content Include="Sql\operators for consequences.sql" />
+    <None Include="Sql\enable multiple scans per period.sql" />
+    <Content Include="Sql\dbo.TardySwipe.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="App_Data\SwipeDesktop.mdf">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="App_Data\SwipeDesktop_log.ldf">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SwipeDesktop.Common\SwipeDesktop.Common.csproj">
+      <Project>{3d6be558-179a-4a20-8c03-623ac87d931d}</Project>
+      <Name>SwipeDesktop.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('c:\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', 'c:\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\WPFMediaKit.2.2.0\build\WPFMediaKit.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\WPFMediaKit.2.2.0\build\WPFMediaKit.targets'))" />
+  </Target>
+  <Import Project="..\packages\WPFMediaKit.2.2.0\build\WPFMediaKit.targets" Condition="Exists('..\packages\WPFMediaKit.2.2.0\build\WPFMediaKit.targets')" />
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(SQLDBExtensionsRefPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(SQLDBExtensionsRefPath)' == ''" />
+  <PropertyGroup>
+    <SsdtUnitTestVersion>2.0</SsdtUnitTestVersion>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

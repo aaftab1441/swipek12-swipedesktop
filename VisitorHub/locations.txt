@@ -1,0 +1,6 @@
+﻿Gymnasium
+Auditorium
+Nurse
+Office
+Guidance Counselor
+Administrator Office

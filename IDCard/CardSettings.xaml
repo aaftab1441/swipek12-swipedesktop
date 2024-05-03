@@ -1,0 +1,65 @@
+﻿<Window x:Class="SwipeK12.CardSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SwipeK12"
+        mc:Ignorable="d"
+        Title="Card Settings" Height="425" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock HorizontalAlignment="Center"  Grid.Row="1" Grid.Column="0" Margin="10" TextWrapping="Wrap" Text="Select school whose data will be used for ID card creation." />
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Margin="5">
+            <Label x:Name="lblSchool" Content="School:"/>
+            <ComboBox x:Name="cboSchool" Width="200" Margin="5" DisplayMemberPath="Value" SelectionChanged="cboSchool_SelectionChanged"/>
+        </StackPanel>
+
+        <TextBlock HorizontalAlignment="Center"  Grid.Row="3" Grid.Column="0" Margin="10" TextWrapping="Wrap" Text="Select default person to use for student ID card design &amp; layout." />
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" Margin="5">
+            <Label x:Name="lblStudent" Content="Student:"/>
+            <ComboBox x:Name="cboStudent" Width="200" Margin="5" DisplayMemberPath="Value"/>
+        </StackPanel>
+
+        <TextBlock HorizontalAlignment="Center"  Grid.Row="5" Grid.Column="0" Margin="10" TextWrapping="Wrap" Text="Select default person to use for teacher ID card design &amp; layout." />
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6" Grid.Column="0" Margin="5">
+            <Label x:Name="lblTeacher" Content="Teacher:"/>
+            <ComboBox x:Name="cboTeacher" Width="200" Margin="5" DisplayMemberPath="Value"/>
+        </StackPanel>
+
+        <TextBlock HorizontalAlignment="Center"  Grid.Row="7" Grid.Column="0" Margin="10" TextWrapping="Wrap" Text="Select default image folder location." />
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="8" Grid.Column="0" Margin="5">
+            <Label x:Name="lblImageFolder" Content="Image Folder:"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Margin="5">
+                <TextBox  Name="txtImageFolder" Width="200" IsReadOnly="True"/>
+                <Button x:Name="btnImageFolder" Click="btnImageFolder_Click">
+                    <Image Source="Media\open.png"></Image>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Margin="5">
+            <Button x:Name="btnSave" Content="Save Settings" Width="100" Margin="5" Click="btnSave_Click"/>
+            <Button x:Name="btnCancel" Content="Cancel" Width="100" Margin="5" IsCancel="True"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

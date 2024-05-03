@@ -1,0 +1,389 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Projects\\swipek12-swipedesktop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|C:\\Projects\\swipek12-swipedesktop\\visitorhub\\viewmodels\\scanstationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|solutionrelative:visitorhub\\viewmodels\\scanstationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|C:\\Projects\\swipek12-swipedesktop\\visitorhub\\idcardutils\\swipecardbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|solutionrelative:visitorhub\\idcardutils\\swipecardbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|C:\\Projects\\swipek12-swipedesktop\\visitorhub\\views\\settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|solutionrelative:visitorhub\\views\\settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|C:\\Projects\\swipek12-swipedesktop\\visitorhub\\views\\idcarddesigner.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|solutionrelative:visitorhub\\views\\idcarddesigner.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|C:\\Projects\\swipek12-swipedesktop\\visitorhub\\viewmodels\\settingsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|solutionrelative:visitorhub\\viewmodels\\settingsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|C:\\Projects\\swipek12-swipedesktop\\visitorhub\\interop\\usbqueue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|solutionrelative:visitorhub\\interop\\usbqueue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|C:\\Projects\\swipek12-swipedesktop\\visitorhub\\storage\\localstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|solutionrelative:visitorhub\\storage\\localstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CC6D934-623A-4AC0-8102-E337F5253282}|Tests\\Tests.csproj|c:\\projects\\swipek12-swipedesktop\\tests\\visitfixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CC6D934-623A-4AC0-8102-E337F5253282}|Tests\\Tests.csproj|solutionrelative:tests\\visitfixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|C:\\Projects\\swipek12-swipedesktop\\visitorhub\\idcardutils\\createcard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|solutionrelative:visitorhub\\idcardutils\\createcard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|C:\\Projects\\swipek12-swipedesktop\\visitorhub\\views\\settings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|solutionrelative:visitorhub\\views\\settings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|C:\\Projects\\swipek12-swipedesktop\\visitorhub\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|solutionrelative:visitorhub\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57047A2A-1B15-46D0-84C8-FF2AF8BC4945}|IDCard\\IDCard.csproj|C:\\Projects\\swipek12-swipedesktop\\idcard\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{57047A2A-1B15-46D0-84C8-FF2AF8BC4945}|IDCard\\IDCard.csproj|solutionrelative:idcard\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57047A2A-1B15-46D0-84C8-FF2AF8BC4945}|IDCard\\IDCard.csproj|C:\\Projects\\swipek12-swipedesktop\\idcard\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{57047A2A-1B15-46D0-84C8-FF2AF8BC4945}|IDCard\\IDCard.csproj|solutionrelative:idcard\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57047A2A-1B15-46D0-84C8-FF2AF8BC4945}|IDCard\\IDCard.csproj|C:\\Projects\\swipek12-swipedesktop\\idcard\\inputdialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{57047A2A-1B15-46D0-84C8-FF2AF8BC4945}|IDCard\\IDCard.csproj|solutionrelative:idcard\\inputdialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57047A2A-1B15-46D0-84C8-FF2AF8BC4945}|IDCard\\IDCard.csproj|C:\\Projects\\swipek12-swipedesktop\\idcard\\createcard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{57047A2A-1B15-46D0-84C8-FF2AF8BC4945}|IDCard\\IDCard.csproj|solutionrelative:idcard\\createcard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57047A2A-1B15-46D0-84C8-FF2AF8BC4945}|IDCard\\IDCard.csproj|C:\\Projects\\swipek12-swipedesktop\\idcard\\cardsettings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{57047A2A-1B15-46D0-84C8-FF2AF8BC4945}|IDCard\\IDCard.csproj|solutionrelative:idcard\\cardsettings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|C:\\Projects\\swipek12-swipedesktop\\visitorhub\\idcardutils\\inputdialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|solutionrelative:visitorhub\\idcardutils\\inputdialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|C:\\Projects\\swipek12-swipedesktop\\visitorhub\\idcardutils\\opencard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|solutionrelative:visitorhub\\idcardutils\\opencard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|C:\\Projects\\swipek12-swipedesktop\\visitorhub\\launchwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|solutionrelative:visitorhub\\launchwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|IDCard||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\swipek12-swipedesktop\\IDCard\\obj\\Debug\\MainWindow.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:IDCard\\obj\\Debug\\MainWindow.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|C:\\Projects\\swipek12-swipedesktop\\visitorhub\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{013B1578-2EC9-4B34-981D-0820AB0BE3A5}|VisitorHub\\SwipeDesktop.csproj|solutionrelative:visitorhub\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB877C1A-9E03-4EEB-A803-44F4420AF099}|DatabaseUtils\\DatabaseUtils.csproj|C:\\Projects\\swipek12-swipedesktop\\databaseutils\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB877C1A-9E03-4EEB-A803-44F4420AF099}|DatabaseUtils\\DatabaseUtils.csproj|solutionrelative:databaseutils\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IdCardDesigner.xaml.cs",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\Views\\IdCardDesigner.xaml.cs",
+              "RelativeDocumentMoniker": "VisitorHub\\Views\\IdCardDesigner.xaml.cs",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\Views\\IdCardDesigner.xaml.cs",
+              "RelativeToolTip": "VisitorHub\\Views\\IdCardDesigner.xaml.cs",
+              "ViewState": "AQIAADIHAAAAAAAAAAAewEoHAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T00:51:13.024Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Settings.xaml.cs",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\Views\\Settings.xaml.cs",
+              "RelativeDocumentMoniker": "VisitorHub\\Views\\Settings.xaml.cs",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\Views\\Settings.xaml.cs",
+              "RelativeToolTip": "VisitorHub\\Views\\Settings.xaml.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAewBwAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T00:12:12.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SettingsViewModel.cs",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\ViewModels\\SettingsViewModel.cs",
+              "RelativeDocumentMoniker": "VisitorHub\\ViewModels\\SettingsViewModel.cs",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\ViewModels\\SettingsViewModel.cs",
+              "RelativeToolTip": "VisitorHub\\ViewModels\\SettingsViewModel.cs",
+              "ViewState": "AQIAAE0CAAAAAAAAAAAewGUCAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T00:10:32.956Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CreateCard.xaml",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\IdCardUtils\\CreateCard.xaml",
+              "RelativeDocumentMoniker": "VisitorHub\\IdCardUtils\\CreateCard.xaml",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\IdCardUtils\\CreateCard.xaml",
+              "RelativeToolTip": "VisitorHub\\IdCardUtils\\CreateCard.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-13T23:51:28.107Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "VisitorHub\\MainWindow.xaml",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\MainWindow.xaml",
+              "RelativeToolTip": "VisitorHub\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-13T23:50:56.965Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LocalStorage.cs",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\Storage\\LocalStorage.cs",
+              "RelativeDocumentMoniker": "VisitorHub\\Storage\\LocalStorage.cs",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\Storage\\LocalStorage.cs",
+              "RelativeToolTip": "VisitorHub\\Storage\\LocalStorage.cs",
+              "ViewState": "AQIAAK8IAAAAAAAAAAAewMcIAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T23:40:03.163Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "USBQueue.cs",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\Interop\\USBQueue.cs",
+              "RelativeDocumentMoniker": "VisitorHub\\Interop\\USBQueue.cs",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\Interop\\USBQueue.cs",
+              "RelativeToolTip": "VisitorHub\\Interop\\USBQueue.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAASwDYAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T23:40:03.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ScanStationViewModel.cs",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\ViewModels\\ScanStationViewModel.cs",
+              "RelativeDocumentMoniker": "VisitorHub\\ViewModels\\ScanStationViewModel.cs",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\ViewModels\\ScanStationViewModel.cs",
+              "RelativeToolTip": "VisitorHub\\ViewModels\\ScanStationViewModel.cs",
+              "ViewState": "AQIAACgMAAAAAAAAAAAewE4MAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T00:19:55.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SwipeCardBLL.cs",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\IdCardUtils\\SwipeCardBLL.cs",
+              "RelativeDocumentMoniker": "VisitorHub\\IdCardUtils\\SwipeCardBLL.cs",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\IdCardUtils\\SwipeCardBLL.cs",
+              "RelativeToolTip": "VisitorHub\\IdCardUtils\\SwipeCardBLL.cs",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAewIMAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T00:19:32.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Settings.xaml",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\Views\\Settings.xaml",
+              "RelativeDocumentMoniker": "VisitorHub\\Views\\Settings.xaml",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\Views\\Settings.xaml",
+              "RelativeToolTip": "VisitorHub\\Views\\Settings.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-14T00:10:09.204Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "VisitFixture.cs",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\Tests\\VisitFixture.cs",
+              "RelativeDocumentMoniker": "Tests\\VisitFixture.cs",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\Tests\\VisitFixture.cs",
+              "RelativeToolTip": "Tests\\VisitFixture.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T00:58:44.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "MainWindow.g.cs",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\IDCard\\obj\\Debug\\MainWindow.g.cs",
+              "RelativeDocumentMoniker": "IDCard\\obj\\Debug\\MainWindow.g.cs",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\IDCard\\obj\\Debug\\MainWindow.g.cs",
+              "RelativeToolTip": "IDCard\\obj\\Debug\\MainWindow.g.cs",
+              "ViewState": "AQIAABECAAAAAAAAAADgvzYCAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T23:47:00.763Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "LaunchWindow.xaml",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\LaunchWindow.xaml",
+              "RelativeDocumentMoniker": "VisitorHub\\LaunchWindow.xaml",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\LaunchWindow.xaml",
+              "RelativeToolTip": "VisitorHub\\LaunchWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-13T23:50:51.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IDCard",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\IDCard\\IDCard.csproj",
+              "RelativeDocumentMoniker": "IDCard\\IDCard.csproj",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\IDCard\\IDCard.csproj",
+              "RelativeToolTip": "IDCard\\IDCard.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-04-13T23:49:06.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\IDCard\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "IDCard\\MainWindow.xaml",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\IDCard\\MainWindow.xaml",
+              "RelativeToolTip": "IDCard\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-13T23:24:19.19Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\IDCard\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "IDCard\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\IDCard\\MainWindow.xaml.cs",
+              "RelativeToolTip": "IDCard\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAHQEAAAAAAAAAAAAAJYBAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T23:41:34.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "InputDialog.xaml",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\IdCardUtils\\InputDialog.xaml",
+              "RelativeDocumentMoniker": "VisitorHub\\IdCardUtils\\InputDialog.xaml",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\IdCardUtils\\InputDialog.xaml",
+              "RelativeToolTip": "VisitorHub\\IdCardUtils\\InputDialog.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-13T23:51:42.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "OpenCard.xaml",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\IdCardUtils\\OpenCard.xaml",
+              "RelativeDocumentMoniker": "VisitorHub\\IdCardUtils\\OpenCard.xaml",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\IdCardUtils\\OpenCard.xaml",
+              "RelativeToolTip": "VisitorHub\\IdCardUtils\\OpenCard.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-13T23:51:33.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CardSettings.xaml",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\IDCard\\CardSettings.xaml",
+              "RelativeDocumentMoniker": "IDCard\\CardSettings.xaml",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\IDCard\\CardSettings.xaml",
+              "RelativeToolTip": "IDCard\\CardSettings.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-13T23:51:52.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "InputDialog.xaml",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\IDCard\\InputDialog.xaml",
+              "RelativeDocumentMoniker": "IDCard\\InputDialog.xaml",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\IDCard\\InputDialog.xaml",
+              "RelativeToolTip": "IDCard\\InputDialog.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-13T23:52:00.567Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CreateCard.xaml",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\IDCard\\CreateCard.xaml",
+              "RelativeDocumentMoniker": "IDCard\\CreateCard.xaml",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\IDCard\\CreateCard.xaml",
+              "RelativeToolTip": "IDCard\\CreateCard.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-13T23:23:15.161Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\App.config",
+              "RelativeDocumentMoniker": "VisitorHub\\App.config",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\VisitorHub\\App.config",
+              "RelativeToolTip": "VisitorHub\\App.config",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAswIsAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-04-13T23:13:44.299Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Projects\\swipek12-swipedesktop\\DatabaseUtils\\Program.cs",
+              "RelativeDocumentMoniker": "DatabaseUtils\\Program.cs",
+              "ToolTip": "C:\\Projects\\swipek12-swipedesktop\\DatabaseUtils\\Program.cs",
+              "RelativeToolTip": "DatabaseUtils\\Program.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAqwCUAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T22:54:32.359Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

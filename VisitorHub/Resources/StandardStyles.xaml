@@ -1,0 +1,775 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+        <ResourceDictionary Source="ScrollbarStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Color x:Key="TitleBar">#c8c8c8</Color>
+
+    <Color x:Key="SwipeMuted">#7a95bf</Color>
+    
+    <Color x:Key="SwipeBlue">#0066B2</Color> 
+    
+    <Color x:Key="SwipeOrange">#f16623</Color>
+    
+    <Color x:Key="SwipeTitleBar">#41B1E1</Color>
+
+    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource TitleBar}"/>
+    <SolidColorBrush x:Key="SwipeMutedColorBrush" Color="{StaticResource SwipeMuted}"/>
+    <SolidColorBrush x:Key="SwipeBlueColorBrush" Color="{StaticResource SwipeBlue}"/>
+    <SolidColorBrush x:Key="SwipeOrangeColorBrush" Color="{StaticResource SwipeOrange}"/>
+    <SolidColorBrush x:Key="TitleBarColorBrush" Color="{StaticResource SwipeTitleBar}"/>
+    <Style x:Key="CustomComboBox"  TargetType="{x:Type ComboBox}">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="MinWidth" Value="60"/>
+        <Setter Property="UIElement.SnapsToDevicePixels" Value="True"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+        <Setter Property="TextElement.Foreground" Value="Black"/>
+        <Setter Property="FrameworkElement.FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background" Value="White" />
+    </Style>
+    <Style x:Key="RightAlignedImageButton" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Button.Width" Value="33" />
+        <Setter Property="Button.Height" Value="33" />
+        <Setter Property="Button.Margin" Value="0,0,1,0" />
+        <Setter Property="Button.HorizontalAlignment" Value="Right" />
+    </Style>
+    <Style x:Key="TransparentStyle" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="Transparent">
+                        <ContentPresenter/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SelectedImage" TargetType="Border">
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="Black" />
+
+        <Setter Property="Margin" Value="4" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="MenuStyle">
+        <Setter Property="FontSize" Value="48"/>
+        <Setter Property="Foreground" Value="white"/>
+    </Style>
+
+    <Style TargetType="WrapPanel" x:Key="ScanBadge">
+       
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="SmallMenuStyle">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Foreground" Value="white"/>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="BadgeTextStyle">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="{StaticResource SwipeOrangeColorBrush}"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="TextAlignment" Value="Left"></Setter>
+        <Setter Property="Margin" Value="10 5"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="SmallBadgeTextStyle">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="{StaticResource SwipeOrangeColorBrush}"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="TextAlignment" Value="Left"></Setter>
+        <Setter Property="Margin" Value="10 5"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="SmallBadgeTextStyleDark">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="#909191"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="TextAlignment" Value="Left"></Setter>
+        <Setter Property="Margin" Value="10 5"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="AlertBadgeTextStyle">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="TextAlignment" Value="Left"></Setter>
+        <Setter Property="Margin" Value="10 5"></Setter>
+    </Style>
+    <Style TargetType="Label" x:Key="BrpBoxLabelStyle">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+
+        <Setter Property="Margin" Value="10 5"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="MutedTextStyle">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="#7a95bf"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="TextAlignment" Value="Left"></Setter>
+        <Setter Property="Margin" Value="10 5"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="SmallMutedTextStyle">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="#7a95bf"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="TextAlignment" Value="Left"></Setter>
+        <Setter Property="Margin" Value="10 5"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="BlueTextStyle">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="#0066B2"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="TextAlignment" Value="Left"></Setter>
+        <Setter Property="Margin" Value="10 5"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="SmallBlueTextStyle">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="#0066B2"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="TextAlignment" Value="Left"></Setter>
+        <Setter Property="Margin" Value="5 5"></Setter>
+    </Style>
+
+    <Style TargetType="Label" x:Key="SmallBlueLabelStyle">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Foreground" Value="#0066B2"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Margin" Value="1 1"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="OrangeTextStyle">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="{StaticResource SwipeOrangeColorBrush}"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Margin" Value="10 10"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="SmallOrangeTextStyle">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Foreground" Value="{StaticResource SwipeOrangeColorBrush}"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Margin" Value="5 5"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="ListItemStyle">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="Foreground" Value="#0066B2"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+    </Style>
+    
+    <Style TargetType="TextBlock" x:Key="SmallListItemStyle">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Padding" Value="0 2"/>
+        <Setter Property="Foreground" Value="#0066B2"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="XSmallListItemStyle">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="#0066B2"/>
+        <Setter Property="FontWeight" Value="Normal"></Setter>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="TextEntryStyle">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="Foreground" Value="#0066B2"/>
+        
+    </Style>
+    <Style TargetType="GroupBox"  x:Key="GroupBoxStyle">
+        <Setter Property="BorderThickness" Value="0"/>
+
+        <Setter Property="Background" Value="white"/>
+        <Setter Property="HeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Margin="0,0,0,0">
+                        <TextBlock Text="{Binding}" Style="{StaticResource SmallOrangeTextStyle}"/>
+                    </StackPanel>
+                   
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="TextBox" x:Key="SmallTextEntryStyle">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Foreground" Value="#0066B2"/>
+        <Setter Property="Padding" Value="2 3"></Setter>
+    </Style>
+<!--
+    <Style TargetType="telerik:RadMaskedDateTimeInput" x:Key="SmallMaskedEditEntryStyle">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Foreground" Value="#0066B2"/>
+        <Setter Property="Padding" Value="2 3"></Setter>
+    </Style>
+-->
+    <Style TargetType="Label" x:Key="LabelStyle">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="Foreground" Value="#0066B2"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+
+    <Style TargetType="Label" x:Key="SmallLabelStyle">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="#0066B2"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+
+    <Style TargetType="Label" x:Key="XSmallLabelStyle">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="#0066B2"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+
+    <Style TargetType="CheckBox" x:Key="SmallCheckboxStyle">
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Margin" Value="0 5"></Setter>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="#0066B2"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="SmallTextStyle">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="#0066B2"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Margin" Value="0 2"></Setter>
+    </Style>
+
+    <Style TargetType="Label" x:Key="WhiteLabelStyle">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="Foreground" Value="white"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+
+    <Style TargetType="Label" x:Key="SmallErrorLabelStyle">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="Red"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="SmallErrorBlockStyle">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="Red"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+
+    <Style x:Key="LayoutRootGridStyle" TargetType="Grid">
+        <Setter Property="Background" Value="#FFFFFFFF"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="BigGreenButtonStyle" BasedOn="{StaticResource ResourceKey=AccentedSquareButtonStyle}">
+        <Setter Property="Background" Value="Lime"></Setter>
+        <Setter Property="Width" Value="250"></Setter>
+      
+        <Setter Property="FontSize" Value="24"></Setter>
+        <Setter Property="Height" Value="90"></Setter>
+    </Style>
+    
+    <Style TargetType="TextBlock" x:Key="SubHeaderStyle">
+        <Setter Property="FontSize" Value="36"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="VerticalAlignment" Value="Top"></Setter>
+        <!--<Setter Property="Foreground" Value="#0066B2"/>-->
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="VisitorHeaderStyle">
+        <Setter Property="FontSize" Value="72"/>
+        <Setter Property="Height" Value="90"/>
+        <Setter Property="VerticalAlignment" Value="Top"></Setter>
+        <!--<Setter Property="Foreground" Value="#0066B2"/>-->
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="HeaderStyle">
+        <Setter Property="FontSize" Value="48"/>
+        <Setter Property="Height" Value="70"/>
+        <Setter Property="VerticalAlignment" Value="Top"></Setter>
+        <!--<Setter Property="Foreground" Value="#0066B2"/>-->
+    </Style>
+
+
+    <Style TargetType="TextBlock" x:Key="HeaderStyle2">
+        <Setter Property="FontSize" Value="36"/>
+        <Setter Property="Height" Value="70"/>
+        <Setter Property="VerticalAlignment" Value="Top"></Setter>
+        <!--<Setter Property="Foreground" Value="#0066B2"/>-->
+    </Style>
+
+    <Style x:Key="Textbox" TargetType="TextBox" BasedOn="{StaticResource MetroTextBox}">
+        <!--<Setter Property="BorderBrush" Value="LightGray"/>
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="VerticalContentAlignment" Value="Center"/>-->
+        <Setter Property="Height" Value="48"></Setter>
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="Margin" Value="5,2"/>
+    </Style>
+
+    <Style x:Key="Textbox2" TargetType="TextBox" BasedOn="{StaticResource MetroTextBox}">
+        <!--<Setter Property="BorderBrush" Value="LightGray"/>
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="VerticalContentAlignment" Value="Center"/>-->
+        <Setter Property="Height" Value="36"></Setter>
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Margin" Value="2,2"/>
+    </Style>
+
+    <Style x:Key="VisitorPassDisplay" TargetType="{x:Type Label}" >
+        <Setter Property="FontSize" Value="24"></Setter>
+        <Setter Property="Height" Value="auto"></Setter>
+        <Setter Property="Background" Value="Black"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Top"></Setter>
+    </Style>
+    
+    <Style x:Key="PassFormattedDateBlock" TargetType="{x:Type TextBlock}" >
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="Height" Value="auto"></Setter>
+        <Setter Property="Padding" Value="0,0,0,0"></Setter>
+        <Setter Property="Margin" Value="0,0,0,0"></Setter>
+    </Style>
+    <Style x:Key="TardyPassFormattedDateBlock" TargetType="{x:Type TextBlock}" >
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="Height" Value="30"></Setter>
+        <Setter Property="Padding" Value="0,0,0,0"></Setter>
+        <Setter Property="Margin" Value="0,0,0,0"></Setter>
+    </Style>
+    <Style x:Key="SchoolLabel" TargetType="{x:Type Label}">
+        <Setter Property="Height" Value="auto"></Setter>
+        <Setter Property="FontSize" Value="18"></Setter>
+        <Setter Property="Margin" Value="0,2"></Setter>
+        <Setter Property="Padding" Value="0,0,0,0"></Setter>
+    </Style>
+
+    <Style x:Key="TardySchoolLabel" TargetType="{x:Type Label}">
+        <Setter Property="Height" Value="30"></Setter>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="Margin" Value="0,2"></Setter>
+        <Setter Property="Padding" Value="0,0,0,0"></Setter>
+    </Style>
+
+    <Style x:Key="PassLabel" TargetType="{x:Type Label}">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="Height" Value="auto"></Setter>
+        <Setter Property="Margin" Value="0"></Setter>
+        <Setter Property="Padding" Value="0"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+    </Style>
+    <Style x:Key="TardyPassLabel" TargetType="{x:Type Label}">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="Height" Value="30"></Setter>
+        <Setter Property="Margin" Value="0"></Setter>
+        <Setter Property="Padding" Value="0"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+    </Style>
+    <Style x:Key="PassLabelSmall" TargetType="{x:Type Label}">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="Height" Value="auto"></Setter>
+        <Setter Property="Margin" Value="0"></Setter>
+        <Setter Property="Padding" Value="0"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+    </Style>
+    <Style x:Key="PassTextBlockSmall" TargetType="{x:Type TextBlock}">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="Height" Value="auto"></Setter>
+        <Setter Property="Margin" Value="0"></Setter>
+        <Setter Property="Padding" Value="0"></Setter>
+     
+    </Style>
+    <Style x:Key="PassTextBlockMedium" TargetType="{x:Type TextBlock}">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="14"></Setter>
+        <Setter Property="Height" Value="auto"></Setter>
+        <Setter Property="Margin" Value="0"></Setter>
+        <Setter Property="Padding" Value="0"></Setter>
+
+    </Style>
+    <Style x:Key="PassTextBlockLarge" TargetType="{x:Type TextBlock}">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="Height" Value="30"></Setter>
+        <Setter Property="Margin" Value="0"></Setter>
+        <Setter Property="Padding" Value="0"></Setter>
+
+    </Style>
+    <Style x:Key="PassDescription" TargetType="{x:Type Label}">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Height" Value="auto"></Setter>
+        <Setter Property="Margin" Value="0"></Setter>
+        <Setter Property="Padding" Value="0"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+    </Style>
+    <Style x:Key="InverseBlackDescription" TargetType="{x:Type Label}">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Background" Value="Black"></Setter>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Height" Value="30"></Setter>
+        
+        <Setter Property="Margin" Value="5"></Setter>
+        <Setter Property="Padding" Value="5 2"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+        
+    </Style>
+    <Style x:Key="PassStudentLabel" TargetType="{x:Type Label}">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Margin" Value="0"></Setter>
+        <Setter Property="Padding" Value="0"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Top"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+    </Style>
+    <Style x:Key="TardyPassStudentLabel" TargetType="{x:Type Label}">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Margin" Value="0"></Setter>
+        <Setter Property="Padding" Value="0"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Top"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+    </Style>
+
+    <Style x:Key="VisitorPassDateLabel" TargetType="{x:Type Label}">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="18"></Setter>
+        <Setter Property="Height" Value="auto"></Setter>
+        <Setter Property="Padding" Value="0,0,0,0"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Top"></Setter>
+    </Style>
+    
+    <Style x:Key="VisitorPassDemographicGrid" TargetType="{x:Type Grid}">
+
+    </Style>
+    <Style x:Key="TardyPassDemographicGrid" TargetType="{x:Type Grid}">
+        <Setter Property="Margin" Value="0"></Setter>
+    </Style>
+    <Style x:Key="VisitorPassDestination" TargetType="{x:Type TextBlock}">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="Height" Value="auto"></Setter>
+    </Style>
+   
+    <Style x:Key="VisitorPassDestinationLabel" TargetType="{x:Type Label}">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="Height" Value="auto"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+    </Style>
+
+
+    <Style x:Key="VisitorPassDestinationBlockText" TargetType="{x:Type TextBlock}">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="Height" Value="auto"></Setter>
+    </Style>
+    <Style x:Key="PopUp" TargetType="Popup">
+        <Setter Property="Height" Value="225"/>
+        <Setter Property="Width" Value="300" />
+        <Setter Property="VerticalOffset" Value="0" />
+        <Setter Property="HorizontalOffset" Value="0" />
+       
+    </Style>
+
+    <Style x:Key="PopUpStackPanel" TargetType="StackPanel">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <Style x:Key="PopUpBorder" TargetType="Border">
+        <Setter Property="BorderBrush" Value="DarkGray"/>
+        <Setter Property="Background" Value="#FFFFFF"/>
+        <Setter Property="BorderThickness" Value="2" />
+    </Style>
+
+    <Style x:Key="TardyGrid" TargetType="DataGrid">
+        <Setter Property="Margin" Value="0,-20,0,0"></Setter>
+        <Setter Property="BorderBrush" Value="Transparent"></Setter>
+    </Style>
+    
+    <Style x:Key="PopupTitleStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+        <Setter Property="Background" Value="{StaticResource SwipeBlueColorBrush}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Padding" Value="5 2"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Margin" Value="1 1"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="10" Opacity="0.25" ShadowDepth="0"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="NoTitleStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+        <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
+        <Setter Property="Height" Value="10"/>
+        <Setter Property="Padding" Value="5 2"/>
+        <Setter Property="Margin" Value="1 1"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    
+    <Style x:Key="GridHeaderSmall" TargetType="DataGridColumnHeader">
+        <Setter Property="FontSize" Value="14"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="BorderThickness" Value="0,0,0,1"></Setter>
+        <Setter Property="BorderBrush" Value="Transparent"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+    </Style>
+    <Style x:Key="HeaderSmall" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+    </Style>
+    <Style x:Key="HeaderMedium" TargetType="TextBlock">
+        <Setter Property="Height" Value="20"></Setter>
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+        <Setter Property="Padding" Value="2"/>
+    </Style>
+    <Style x:Key="HeaderLarge" TargetType="TextBlock">
+        <Setter Property="Height" Value="24"></Setter>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+        <Setter Property="Padding" Value="2"/>
+    </Style>
+    <Storyboard x:Key="FlashAnimation" >
+        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" AutoReverse="True" Duration="0:0:0.75" RepeatBehavior="Forever" />
+    </Storyboard>
+    <Style x:Key="ConnectedTextStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="TextAlignment" Value="Left"></Setter>
+        <Setter Property="Margin" Value="10 5"></Setter>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=Connected}" Value="Network Not Connected">
+                <Setter Property="Foreground" Value="Red"/>
+                <Setter Property="Text" Value="Running..."/>
+
+                <DataTrigger.EnterActions>
+                    <BeginStoryboard Name="flashNotConnected" Storyboard="{StaticResource FlashAnimation}" />
+                </DataTrigger.EnterActions>
+                <DataTrigger.ExitActions>
+                    <StopStoryboard BeginStoryboardName="flashNotConnected"/>
+                </DataTrigger.ExitActions>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=Connected}" Value="Station Offline">
+                <Setter Property="Foreground" Value="Red"/>
+                <Setter Property="Text" Value="Running..."/>
+
+                <DataTrigger.EnterActions>
+                    <BeginStoryboard Name="flashOffline" Storyboard="{StaticResource FlashAnimation}" />
+                </DataTrigger.EnterActions>
+                <DataTrigger.ExitActions>
+                    <StopStoryboard BeginStoryboardName="flashOffline"/>
+                </DataTrigger.ExitActions>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=Connected}" Value="Internet Connected">
+                <Setter Property="Foreground" Value="Green"/>
+                <Setter Property="Text" Value="Done..."/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="VisitorConnectedTextStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="TextAlignment" Value="Left"></Setter>
+            <Setter Property="Margin" Value="10 5"></Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Connected}" Value="Not Connected">
+                    <Setter Property="Foreground" Value="Red"/>
+                    <Setter Property="Text" Value="Running..."/>
+
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard Name="flashNotConnected" Storyboard="{StaticResource FlashAnimation}" />
+                    </DataTrigger.EnterActions>
+                    <DataTrigger.ExitActions>
+                        <StopStoryboard BeginStoryboardName="flashNotConnected"/>
+                    </DataTrigger.ExitActions>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Connected}" Value="Station Offline">
+                    <Setter Property="Foreground" Value="Red"/>
+                    <Setter Property="Text" Value="Running..."/>
+
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard Name="flashOffline" Storyboard="{StaticResource FlashAnimation}" />
+                    </DataTrigger.EnterActions>
+                    <DataTrigger.ExitActions>
+                        <StopStoryboard BeginStoryboardName="flashOffline"/>
+                    </DataTrigger.ExitActions>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Connected}" Value="Internet Connected">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Text" Value="Done..."/>
+                </DataTrigger>
+            </Style.Triggers>
+            <!--
+        <Style.Resources>
+            <Storyboard x:Key="flashAnimation" >
+                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" AutoReverse="True" Duration="0:0:0.5" RepeatBehavior="Forever" />
+            </Storyboard>
+        </Style.Resources>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding OptionInMoney}" Value="True">
+                <Setter Property="Visibility" Value="Visible" />
+                <DataTrigger.EnterActions>
+                    <BeginStoryboard Name="flash" Storyboard="{StaticResource flashAnimation}" />
+                </DataTrigger.EnterActions>
+                <DataTrigger.ExitActions>
+                    <StopStoryboard BeginStoryboardName="flash"/>
+                </DataTrigger.ExitActions>
+            </DataTrigger>
+
+        </Style.Triggers>
+        -->
+    </Style>
+    
+    <Style x:Key="TextBoxInError" TargetType="{x:Type TextBox}">
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="ToolTip"
+                            Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                            Path=(Validation.Errors)[0].ErrorContent}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+    <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+    <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FFADB2B5"/>
+
+    <Style x:Key="CustomButtonStyle" TargetType="Button" BasedOn="{StaticResource AccentedSquareButtonStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="1">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property= "Background" Value="Transparent"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="StudentEnterItemNoHoverStyle" TargetType="ListViewItem">
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+
+                    <Border x:Name="border" Background="Transparent">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="Disabled" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                              Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="White" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="SelectionStates">
+                                <VisualState x:Name="Unselected" />
+                                <VisualState x:Name="Selected">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                              Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="White" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                              Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="White" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <ContentPresenter/>
+                    </Border>
+                    <!--<ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Background" Value="Green"/>
+                                    <Setter Property="BorderBrush" Value="red" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate x:Key="validationTemplate">
+        <DockPanel>
+            <TextBlock Text="{Binding Path=/ErrorContent}" TextAlignment="Right" Style="{StaticResource SmallErrorBlockStyle}" DockPanel.Dock="Top" Foreground="Red"/>
+            <Border BorderBrush="Red" BorderThickness="1">
+                <AdornedElementPlaceholder/>
+            </Border>
+        </DockPanel>
+        <!--<Grid>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+                <fa:ImageAwesome Icon="ExclamationTriangle" Margin="0 0 5 0" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="Red" Height="20"  ToolTip="{Binding Path=/ErrorContent}"/>
+                <Label Content="{Binding Path=/ErrorContent}" Style="{StaticResource SmallErrorLabelStyle}"></Label>
+                <AdornedElementPlaceholder />
+                
+            </StackPanel>
+        </Grid>-->
+    </ControlTemplate>
+
+</ResourceDictionary>
